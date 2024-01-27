@@ -1,0 +1,19 @@
+17:28:09 **** Incremental Build of configuration Nios II for project task3 ****
+make all 
+Info: Building ../task3_bsp/
+make --no-print-directory -C ../task3_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../task3_bsp//HAL/inc -I../task3_bsp/ -I../task3_bsp//drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+Info: Linking task3.elf
+nios2-elf-g++ -T'../task3_bsp//linker.x' -msys-crt0='../task3_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../task3_bsp/   -Wl,-Map=task3.map   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o task3.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert task3.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x1001030 --timestamp 1706376011 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name first_nios2_system --quartus_project_dir "/home/nik/eie/dsd/system_template_de1_soc" --jdi /home/nik/eie/dsd/system_template_de1_soc/software/task3_bsp/../../hello_world.jdi --sopcinfo /home/nik/eie/dsd/system_template_de1_soc/software/task3_bsp/../../first_nios2_system.sopcinfo
+Picked up JAVA_TOOL_OPTIONS: -Dsun.java2d.uiScale=1.0
+Info: (task3.elf) 74 KBytes program size (code + initialized data).
+Info:             8110 KBytes free for stack + heap.
+Info: Creating task3.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source task3.elf >task3.objdump
+[task3 build complete]
+
+17:28:11 Build Finished (took 1s.874ms)
+

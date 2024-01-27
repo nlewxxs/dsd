@@ -1,0 +1,66 @@
+0080040c <main>:
+  80040c:	defffe04 	addi	sp,sp,-8
+  800410:	dfc00115 	stw	ra,4(sp)
+  800414:	df000015 	stw	fp,0(sp)
+  800418:	d839883a 	mov	fp,sp
+  80041c:	023ffc34 	movhi	r8,65520
+  800420:	4203fb04 	addi	r8,r8,4076
+  800424:	da37883a 	add	sp,sp,r8
+  800428:	01002074 	movhi	r4,129
+  80042c:	21018704 	addi	r4,r4,1564
+  800430:	08010140 	call	801014 <puts>
+  800434:	01002074 	movhi	r4,129
+  800438:	21018d04 	addi	r4,r4,1588
+  80043c:	08010140 	call	801014 <puts>
+  800440:	01400134 	movhi	r5,4
+  800444:	297f0044 	addi	r5,r5,-1023
+  800448:	01002074 	movhi	r4,129
+  80044c:	21019204 	addi	r4,r4,1608
+  800450:	0800f100 	call	800f10 <printf>
+  800454:	000b883a 	mov	r5,zero
+  800458:	018fd434 	movhi	r6,16208
+  80045c:	01002074 	movhi	r4,129
+  800460:	21019704 	addi	r4,r4,1628
+  800464:	0800f100 	call	800f10 <printf>
+  800468:	00bffc34 	movhi	r2,65520
+  80046c:	1083fb04 	addi	r2,r2,4076
+  800470:	e085883a 	add	r2,fp,r2
+  800474:	1009883a 	mov	r4,r2
+  800478:	08002840 	call	800284 <generateVector>
+  80047c:	0009883a 	mov	r4,zero
+  800480:	080e6a40 	call	80e6a4 <times>
+  800484:	e0bfff15 	stw	r2,-4(fp)
+  800488:	00bffc34 	movhi	r2,65520
+  80048c:	1083fb04 	addi	r2,r2,4076
+  800490:	e085883a 	add	r2,fp,r2
+  800494:	01400134 	movhi	r5,4
+  800498:	297f0044 	addi	r5,r5,-1023
+  80049c:	1009883a 	mov	r4,r2
+  8004a0:	08003300 	call	800330 <sumVector>
+  8004a4:	e0bffe15 	stw	r2,-8(fp)
+  8004a8:	0009883a 	mov	r4,zero
+  8004ac:	080e6a40 	call	80e6a4 <times>
+  8004b0:	e0bffd15 	stw	r2,-12(fp)
+  8004b4:	e0fffd17 	ldw	r3,-12(fp)
+  8004b8:	e0bfff17 	ldw	r2,-4(fp)
+  8004bc:	1885c83a 	sub	r2,r3,r2
+  8004c0:	e0bffc15 	stw	r2,-16(fp)
+  8004c4:	e17ffc17 	ldw	r5,-16(fp)
+  8004c8:	01002074 	movhi	r4,129
+  8004cc:	21019904 	addi	r4,r4,1636
+  8004d0:	0800f100 	call	800f10 <printf>
+  8004d4:	e13ffe17 	ldw	r4,-8(fp)
+  8004d8:	0800d680 	call	800d68 <__extendsfdf2>
+  8004dc:	100d883a 	mov	r6,r2
+  8004e0:	180f883a 	mov	r7,r3
+  8004e4:	300b883a 	mov	r5,r6
+  8004e8:	380d883a 	mov	r6,r7
+  8004ec:	01002074 	movhi	r4,129
+  8004f0:	2101a104 	addi	r4,r4,1668
+  8004f4:	0800f100 	call	800f10 <printf>
+  8004f8:	0005883a 	mov	r2,zero
+  8004fc:	e037883a 	mov	sp,fp
+  800500:	dfc00117 	ldw	ra,4(sp)
+  800504:	df000017 	ldw	fp,0(sp)
+  800508:	dec00204 	addi	sp,sp,8
+  80050c:	f800283a 	ret

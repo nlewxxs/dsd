@@ -1,0 +1,19 @@
+13:26:14 **** Incremental Build of configuration Nios II for project hello_world ****
+make all 
+Info: Building ../hello_world_bsp/
+make --no-print-directory -C ../hello_world_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../hello_world_bsp//HAL/inc -I../hello_world_bsp/ -I../hello_world_bsp//drivers/inc -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+Info: Linking hello_world.elf
+nios2-elf-g++ -T'../hello_world_bsp//linker.x' -msys-crt0='../hello_world_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../hello_world_bsp/ -msmallc  -Wl,-Map=hello_world.map   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o hello_world.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert hello_world.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x101030 --timestamp 1705584739 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name first_nios2_system --quartus_project_dir "/home/nik/eie/dsd/system_template_de1_soc" --jdi /home/nik/eie/dsd/system_template_de1_soc/software/hello_world_bsp/../../hello_world.jdi --sopcinfo /home/nik/eie/dsd/system_template_de1_soc/software/hello_world_bsp/../../first_nios2_system.sopcinfo
+Picked up JAVA_TOOL_OPTIONS: -Dsun.java2d.uiScale=1.0
+Info: (hello_world.elf) 14 KBytes program size (code + initialized data).
+Info:                   368 KBytes free for stack + heap.
+Info: Creating hello_world.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source hello_world.elf >hello_world.objdump
+[hello_world build complete]
+
+13:26:16 Build Finished (took 2s.125ms)
+
