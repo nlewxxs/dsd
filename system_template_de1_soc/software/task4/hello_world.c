@@ -67,13 +67,11 @@ int main()
 	clock_t exec_t1;
 	clock_t exec_t2;
 
-	generateVector(x); // generate input vector
+	generateVector(x); // generate local VTune can't seem to find th input vector
 
 	/*********************************************/
 	exec_t1 = times(NULL);
-
 	y = sumVector(x, N);
-
 	exec_t2 = times(NULL);
 	/*********************************************/
 

@@ -1444,3 +1444,403 @@ nios2-elf-objdump --disassemble --syms --all-header --source task4.elf >task4.ob
 16:26:39 **** Incremental Build of configuration Nios II for project task4_bsp ****
 make all 
 [BSP build complete]
+16:35:57 **** Incremental Build of configuration Nios II for project task4 ****
+make all 
+Info: Building ../task4_bsp/
+make --no-print-directory -C ../task4_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../task4_bsp//HAL/inc -I../task4_bsp/ -I../task4_bsp//drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'main':
+hello_world.c:83:20: warning: format '%lu' expects argument of type 'long unsigned int', but argument 2 has type 'double' [-Wformat=]
+   83 |  printf("Answer: %lu\n", y);
+      |                  ~~^     ~
+      |                    |     |
+      |                    |     double
+      |                    long unsigned int
+      |                  %f
+Info: Linking task4.elf
+nios2-elf-g++ -T'../task4_bsp//linker.x' -msys-crt0='../task4_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../task4_bsp/   -Wl,-Map=task4.map   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o task4.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert task4.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x1001030 --timestamp 1706376011 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name first_nios2_system --quartus_project_dir "/home/nik/eie/dsd/system_template_de1_soc" --jdi /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../hello_world.jdi --sopcinfo /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../first_nios2_system.sopcinfo
+Picked up JAVA_TOOL_OPTIONS: -Dsun.java2d.uiScale=1.0
+Info: (task4.elf) 83 KBytes program size (code + initialized data).
+Info:             8101 KBytes free for stack + heap.
+Info: Creating task4.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source task4.elf >task4.objdump
+[task4 build complete]
+16:36:00 **** Incremental Build of configuration Nios II for project task4_bsp ****
+make all 
+[BSP build complete]
+16:36:16 **** Incremental Build of configuration Nios II for project task4 ****
+make all 
+Info: Building ../task4_bsp/
+make --no-print-directory -C ../task4_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../task4_bsp//HAL/inc -I../task4_bsp/ -I../task4_bsp//drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+Info: Linking task4.elf
+nios2-elf-g++ -T'../task4_bsp//linker.x' -msys-crt0='../task4_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../task4_bsp/   -Wl,-Map=task4.map   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o task4.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert task4.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x1001030 --timestamp 1706376011 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name first_nios2_system --quartus_project_dir "/home/nik/eie/dsd/system_template_de1_soc" --jdi /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../hello_world.jdi --sopcinfo /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../first_nios2_system.sopcinfo
+Picked up JAVA_TOOL_OPTIONS: -Dsun.java2d.uiScale=1.0
+Info: (task4.elf) 83 KBytes program size (code + initialized data).
+Info:             8101 KBytes free for stack + heap.
+Info: Creating task4.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source task4.elf >task4.objdump
+[task4 build complete]
+16:36:18 **** Incremental Build of configuration Nios II for project task4_bsp ****
+make all 
+[BSP build complete]
+16:47:53 **** Incremental Build of configuration Nios II for project task4 ****
+make all 
+Info: Building ../task4_bsp/
+make --no-print-directory -C ../task4_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../task4_bsp//HAL/inc -I../task4_bsp/ -I../task4_bsp//drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+Info: Linking task4.elf
+nios2-elf-g++ -T'../task4_bsp//linker.x' -msys-crt0='../task4_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../task4_bsp/   -Wl,-Map=task4.map   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o task4.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert task4.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x1001030 --timestamp 1706376011 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name first_nios2_system --quartus_project_dir "/home/nik/eie/dsd/system_template_de1_soc" --jdi /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../hello_world.jdi --sopcinfo /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../first_nios2_system.sopcinfo
+Picked up JAVA_TOOL_OPTIONS: -Dsun.java2d.uiScale=1.0
+Info: (task4.elf) 83 KBytes program size (code + initialized data).
+Info:             8101 KBytes free for stack + heap.
+Info: Creating task4.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source task4.elf >task4.objdump
+[task4 build complete]
+16:47:55 **** Incremental Build of configuration Nios II for project task4_bsp ****
+make all 
+[BSP build complete]
+16:48:50 **** Incremental Build of configuration Nios II for project task4 ****
+make all 
+Info: Building ../task4_bsp/
+make --no-print-directory -C ../task4_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../task4_bsp//HAL/inc -I../task4_bsp/ -I../task4_bsp//drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+Info: Linking task4.elf
+nios2-elf-g++ -T'../task4_bsp//linker.x' -msys-crt0='../task4_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../task4_bsp/   -Wl,-Map=task4.map   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o task4.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert task4.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x1001030 --timestamp 1706376011 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name first_nios2_system --quartus_project_dir "/home/nik/eie/dsd/system_template_de1_soc" --jdi /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../hello_world.jdi --sopcinfo /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../first_nios2_system.sopcinfo
+Picked up JAVA_TOOL_OPTIONS: -Dsun.java2d.uiScale=1.0
+Info: (task4.elf) 83 KBytes program size (code + initialized data).
+Info:             8101 KBytes free for stack + heap.
+Info: Creating task4.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source task4.elf >task4.objdump
+[task4 build complete]
+16:48:53 **** Incremental Build of configuration Nios II for project task4_bsp ****
+make all 
+[BSP build complete]
+16:49:52 **** Incremental Build of configuration Nios II for project task4 ****
+make all 
+Info: Building ../task4_bsp/
+make --no-print-directory -C ../task4_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../task4_bsp//HAL/inc -I../task4_bsp/ -I../task4_bsp//drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+Info: Linking task4.elf
+nios2-elf-g++ -T'../task4_bsp//linker.x' -msys-crt0='../task4_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../task4_bsp/   -Wl,-Map=task4.map   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o task4.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert task4.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x1001030 --timestamp 1706376011 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name first_nios2_system --quartus_project_dir "/home/nik/eie/dsd/system_template_de1_soc" --jdi /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../hello_world.jdi --sopcinfo /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../first_nios2_system.sopcinfo
+Picked up JAVA_TOOL_OPTIONS: -Dsun.java2d.uiScale=1.0
+Info: (task4.elf) 83 KBytes program size (code + initialized data).
+Info:             8101 KBytes free for stack + heap.
+Info: Creating task4.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source task4.elf >task4.objdump
+[task4 build complete]
+16:49:54 **** Incremental Build of configuration Nios II for project task4_bsp ****
+make all 
+[BSP build complete]
+16:59:27 **** Incremental Build of configuration Nios II for project task4 ****
+make all 
+Info: Building ../task4_bsp/
+make --no-print-directory -C ../task4_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../task4_bsp//HAL/inc -I../task4_bsp/ -I../task4_bsp//drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+Info: Linking task4.elf
+nios2-elf-g++ -T'../task4_bsp//linker.x' -msys-crt0='../task4_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../task4_bsp/   -Wl,-Map=task4.map   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o task4.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert task4.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x1001030 --timestamp 1706376011 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name first_nios2_system --quartus_project_dir "/home/nik/eie/dsd/system_template_de1_soc" --jdi /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../hello_world.jdi --sopcinfo /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../first_nios2_system.sopcinfo
+Picked up JAVA_TOOL_OPTIONS: -Dsun.java2d.uiScale=1.0
+Info: (task4.elf) 83 KBytes program size (code + initialized data).
+Info:             8101 KBytes free for stack + heap.
+Info: Creating task4.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source task4.elf >task4.objdump
+[task4 build complete]
+16:59:29 **** Incremental Build of configuration Nios II for project task4_bsp ****
+make all 
+[BSP build complete]
+17:13:15 **** Incremental Build of configuration Nios II for project task4 ****
+make all 
+Info: Building ../task4_bsp/
+make --no-print-directory -C ../task4_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../task4_bsp//HAL/inc -I../task4_bsp/ -I../task4_bsp//drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'main':
+hello_world.c:82:20: warning: format '%lu' expects argument of type 'long unsigned int', but argument 2 has type 'double' [-Wformat=]
+   82 |  printf("Answer: %lu\n", y);
+      |                  ~~^     ~
+      |                    |     |
+      |                    |     double
+      |                    long unsigned int
+      |                  %f
+Info: Linking task4.elf
+nios2-elf-g++ -T'../task4_bsp//linker.x' -msys-crt0='../task4_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../task4_bsp/   -Wl,-Map=task4.map   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o task4.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert task4.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x1001030 --timestamp 1706376011 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name first_nios2_system --quartus_project_dir "/home/nik/eie/dsd/system_template_de1_soc" --jdi /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../hello_world.jdi --sopcinfo /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../first_nios2_system.sopcinfo
+Picked up JAVA_TOOL_OPTIONS: -Dsun.java2d.uiScale=1.0
+Info: (task4.elf) 80 KBytes program size (code + initialized data).
+Info:             8104 KBytes free for stack + heap.
+Info: Creating task4.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source task4.elf >task4.objdump
+[task4 build complete]
+17:13:17 **** Incremental Build of configuration Nios II for project task4_bsp ****
+make all 
+[BSP build complete]
+17:14:17 **** Incremental Build of configuration Nios II for project task4 ****
+make all 
+Info: Building ../task4_bsp/
+make --no-print-directory -C ../task4_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../task4_bsp//HAL/inc -I../task4_bsp/ -I../task4_bsp//drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+Info: Linking task4.elf
+nios2-elf-g++ -T'../task4_bsp//linker.x' -msys-crt0='../task4_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../task4_bsp/   -Wl,-Map=task4.map   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o task4.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert task4.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x1001030 --timestamp 1706376011 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name first_nios2_system --quartus_project_dir "/home/nik/eie/dsd/system_template_de1_soc" --jdi /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../hello_world.jdi --sopcinfo /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../first_nios2_system.sopcinfo
+Picked up JAVA_TOOL_OPTIONS: -Dsun.java2d.uiScale=1.0
+Info: (task4.elf) 80 KBytes program size (code + initialized data).
+Info:             8104 KBytes free for stack + heap.
+Info: Creating task4.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source task4.elf >task4.objdump
+[task4 build complete]
+17:14:19 **** Incremental Build of configuration Nios II for project task4_bsp ****
+make all 
+[BSP build complete]
+17:16:09 **** Incremental Build of configuration Nios II for project task4 ****
+make all 
+Info: Building ../task4_bsp/
+make --no-print-directory -C ../task4_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../task4_bsp//HAL/inc -I../task4_bsp/ -I../task4_bsp//drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+Info: Linking task4.elf
+nios2-elf-g++ -T'../task4_bsp//linker.x' -msys-crt0='../task4_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../task4_bsp/   -Wl,-Map=task4.map   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o task4.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert task4.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x1001030 --timestamp 1706376011 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name first_nios2_system --quartus_project_dir "/home/nik/eie/dsd/system_template_de1_soc" --jdi /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../hello_world.jdi --sopcinfo /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../first_nios2_system.sopcinfo
+Picked up JAVA_TOOL_OPTIONS: -Dsun.java2d.uiScale=1.0
+Info: (task4.elf) 81 KBytes program size (code + initialized data).
+Info:             8104 KBytes free for stack + heap.
+Info: Creating task4.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source task4.elf >task4.objdump
+[task4 build complete]
+17:16:11 **** Incremental Build of configuration Nios II for project task4_bsp ****
+make all 
+[BSP build complete]
+17:22:26 **** Incremental Build of configuration Nios II for project task4 ****
+make all 
+Info: Building ../task4_bsp/
+make --no-print-directory -C ../task4_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../task4_bsp//HAL/inc -I../task4_bsp/ -I../task4_bsp//drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+Info: Linking task4.elf
+nios2-elf-g++ -T'../task4_bsp//linker.x' -msys-crt0='../task4_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../task4_bsp/   -Wl,-Map=task4.map   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o task4.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert task4.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x1001030 --timestamp 1706376011 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name first_nios2_system --quartus_project_dir "/home/nik/eie/dsd/system_template_de1_soc" --jdi /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../hello_world.jdi --sopcinfo /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../first_nios2_system.sopcinfo
+Picked up JAVA_TOOL_OPTIONS: -Dsun.java2d.uiScale=1.0
+Info: (task4.elf) 81 KBytes program size (code + initialized data).
+Info:             8104 KBytes free for stack + heap.
+Info: Creating task4.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source task4.elf >task4.objdump
+[task4 build complete]
+17:22:28 **** Incremental Build of configuration Nios II for project task4_bsp ****
+make all 
+[BSP build complete]
+17:27:52 **** Incremental Build of configuration Nios II for project task4 ****
+make all 
+Info: Building ../task4_bsp/
+make --no-print-directory -C ../task4_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../task4_bsp//HAL/inc -I../task4_bsp/ -I../task4_bsp//drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'main':
+hello_world.c:64:15: warning: format '%f' expects argument of type 'double', but argument 2 has type 'int' [-Wformat=]
+   64 |  printf("s = %f\n", step);
+      |              ~^
+      |               |
+      |               double
+      |              %d
+Info: Linking task4.elf
+nios2-elf-g++ -T'../task4_bsp//linker.x' -msys-crt0='../task4_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../task4_bsp/   -Wl,-Map=task4.map   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o task4.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert task4.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x1001030 --timestamp 1706376011 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name first_nios2_system --quartus_project_dir "/home/nik/eie/dsd/system_template_de1_soc" --jdi /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../hello_world.jdi --sopcinfo /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../first_nios2_system.sopcinfo
+Picked up JAVA_TOOL_OPTIONS: -Dsun.java2d.uiScale=1.0
+Info: (task4.elf) 81 KBytes program size (code + initialized data).
+Info:             8104 KBytes free for stack + heap.
+Info: Creating task4.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source task4.elf >task4.objdump
+[task4 build complete]
+17:27:54 **** Incremental Build of configuration Nios II for project task4_bsp ****
+make all 
+[BSP build complete]
+17:28:01 **** Incremental Build of configuration Nios II for project task4 ****
+make all 
+Info: Building ../task4_bsp/
+make --no-print-directory -C ../task4_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../task4_bsp//HAL/inc -I../task4_bsp/ -I../task4_bsp//drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+Info: Linking task4.elf
+nios2-elf-g++ -T'../task4_bsp//linker.x' -msys-crt0='../task4_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../task4_bsp/   -Wl,-Map=task4.map   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o task4.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert task4.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x1001030 --timestamp 1706376011 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name first_nios2_system --quartus_project_dir "/home/nik/eie/dsd/system_template_de1_soc" --jdi /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../hello_world.jdi --sopcinfo /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../first_nios2_system.sopcinfo
+Picked up JAVA_TOOL_OPTIONS: -Dsun.java2d.uiScale=1.0
+Info: (task4.elf) 81 KBytes program size (code + initialized data).
+Info:             8104 KBytes free for stack + heap.
+Info: Creating task4.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source task4.elf >task4.objdump
+[task4 build complete]
+17:28:03 **** Incremental Build of configuration Nios II for project task4_bsp ****
+make all 
+[BSP build complete]
+17:30:00 **** Incremental Build of configuration Nios II for project task4 ****
+make all 
+Info: Building ../task4_bsp/
+make --no-print-directory -C ../task4_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../task4_bsp//HAL/inc -I../task4_bsp/ -I../task4_bsp//drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+Info: Linking task4.elf
+nios2-elf-g++ -T'../task4_bsp//linker.x' -msys-crt0='../task4_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../task4_bsp/   -Wl,-Map=task4.map   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o task4.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert task4.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x1001030 --timestamp 1706376011 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name first_nios2_system --quartus_project_dir "/home/nik/eie/dsd/system_template_de1_soc" --jdi /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../hello_world.jdi --sopcinfo /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../first_nios2_system.sopcinfo
+Picked up JAVA_TOOL_OPTIONS: -Dsun.java2d.uiScale=1.0
+Info: (task4.elf) 80 KBytes program size (code + initialized data).
+Info:             8104 KBytes free for stack + heap.
+Info: Creating task4.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source task4.elf >task4.objdump
+[task4 build complete]
+17:30:03 **** Incremental Build of configuration Nios II for project task4_bsp ****
+make all 
+[BSP build complete]
+17:31:12 **** Incremental Build of configuration Nios II for project task4 ****
+make all 
+Info: Building ../task4_bsp/
+make --no-print-directory -C ../task4_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../task4_bsp//HAL/inc -I../task4_bsp/ -I../task4_bsp//drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+Info: Linking task4.elf
+nios2-elf-g++ -T'../task4_bsp//linker.x' -msys-crt0='../task4_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../task4_bsp/   -Wl,-Map=task4.map   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o task4.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert task4.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x1001030 --timestamp 1706376011 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name first_nios2_system --quartus_project_dir "/home/nik/eie/dsd/system_template_de1_soc" --jdi /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../hello_world.jdi --sopcinfo /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../first_nios2_system.sopcinfo
+Picked up JAVA_TOOL_OPTIONS: -Dsun.java2d.uiScale=1.0
+Info: (task4.elf) 80 KBytes program size (code + initialized data).
+Info:             8104 KBytes free for stack + heap.
+Info: Creating task4.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source task4.elf >task4.objdump
+[task4 build complete]
+17:31:15 **** Incremental Build of configuration Nios II for project task4_bsp ****
+make all 
+[BSP build complete]
+17:34:49 **** Incremental Build of configuration Nios II for project task4 ****
+make all 
+Info: Building ../task4_bsp/
+make --no-print-directory -C ../task4_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../task4_bsp//HAL/inc -I../task4_bsp/ -I../task4_bsp//drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+Info: Linking task4.elf
+nios2-elf-g++ -T'../task4_bsp//linker.x' -msys-crt0='../task4_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../task4_bsp/   -Wl,-Map=task4.map   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o task4.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert task4.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x1001030 --timestamp 1706376011 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name first_nios2_system --quartus_project_dir "/home/nik/eie/dsd/system_template_de1_soc" --jdi /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../hello_world.jdi --sopcinfo /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../first_nios2_system.sopcinfo
+Picked up JAVA_TOOL_OPTIONS: -Dsun.java2d.uiScale=1.0
+Info: (task4.elf) 80 KBytes program size (code + initialized data).
+Info:             8104 KBytes free for stack + heap.
+Info: Creating task4.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source task4.elf >task4.objdump
+[task4 build complete]
+17:34:52 **** Incremental Build of configuration Nios II for project task4_bsp ****
+make all 
+[BSP build complete]
+17:50:35 **** Incremental Build of configuration Nios II for project task4 ****
+make all 
+Info: Building ../task4_bsp/
+make --no-print-directory -C ../task4_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../task4_bsp//HAL/inc -I../task4_bsp/ -I../task4_bsp//drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'main':
+hello_world.c:63:15: warning: format '%f' expects argument of type 'double', but argument 2 has type 'int' [-Wformat=]
+   63 |  printf("s = %f\n", step);
+      |              ~^
+      |               |
+      |               double
+      |              %d
+Info: Linking task4.elf
+nios2-elf-g++ -T'../task4_bsp//linker.x' -msys-crt0='../task4_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../task4_bsp/   -Wl,-Map=task4.map   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o task4.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert task4.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x1001030 --timestamp 1706376011 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name first_nios2_system --quartus_project_dir "/home/nik/eie/dsd/system_template_de1_soc" --jdi /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../hello_world.jdi --sopcinfo /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../first_nios2_system.sopcinfo
+Picked up JAVA_TOOL_OPTIONS: -Dsun.java2d.uiScale=1.0
+Info: (task4.elf) 83 KBytes program size (code + initialized data).
+Info:             8101 KBytes free for stack + heap.
+Info: Creating task4.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source task4.elf >task4.objdump
+[task4 build complete]
+17:50:38 **** Incremental Build of configuration Nios II for project task4_bsp ****
+make all 
+[BSP build complete]
+17:52:25 **** Incremental Build of configuration Nios II for project task4 ****
+make all 
+Info: Building ../task4_bsp/
+make --no-print-directory -C ../task4_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../task4_bsp//HAL/inc -I../task4_bsp/ -I../task4_bsp//drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+Info: Linking task4.elf
+nios2-elf-g++ -T'../task4_bsp//linker.x' -msys-crt0='../task4_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../task4_bsp/   -Wl,-Map=task4.map   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o task4.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert task4.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x1001030 --timestamp 1706376011 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name first_nios2_system --quartus_project_dir "/home/nik/eie/dsd/system_template_de1_soc" --jdi /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../hello_world.jdi --sopcinfo /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../first_nios2_system.sopcinfo
+Picked up JAVA_TOOL_OPTIONS: -Dsun.java2d.uiScale=1.0
+Info: (task4.elf) 83 KBytes program size (code + initialized data).
+Info:             8101 KBytes free for stack + heap.
+Info: Creating task4.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source task4.elf >task4.objdump
+[task4 build complete]
+17:52:27 **** Incremental Build of configuration Nios II for project task4_bsp ****
+make all 
+[BSP build complete]
+17:52:53 **** Incremental Build of configuration Nios II for project task4 ****
+make all 
+Info: Building ../task4_bsp/
+make --no-print-directory -C ../task4_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../task4_bsp//HAL/inc -I../task4_bsp/ -I../task4_bsp//drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+Info: Linking task4.elf
+nios2-elf-g++ -T'../task4_bsp//linker.x' -msys-crt0='../task4_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../task4_bsp/   -Wl,-Map=task4.map   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o task4.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert task4.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x1001030 --timestamp 1706376011 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name first_nios2_system --quartus_project_dir "/home/nik/eie/dsd/system_template_de1_soc" --jdi /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../hello_world.jdi --sopcinfo /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../first_nios2_system.sopcinfo
+Picked up JAVA_TOOL_OPTIONS: -Dsun.java2d.uiScale=1.0
+Info: (task4.elf) 83 KBytes program size (code + initialized data).
+Info:             8101 KBytes free for stack + heap.
+Info: Creating task4.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source task4.elf >task4.objdump
+[task4 build complete]
+17:52:55 **** Incremental Build of configuration Nios II for project task4_bsp ****
+make all 
+[BSP build complete]
+17:53:24 **** Incremental Build of configuration Nios II for project task4 ****
+make all 
+Info: Building ../task4_bsp/
+make --no-print-directory -C ../task4_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../task4_bsp//HAL/inc -I../task4_bsp/ -I../task4_bsp//drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+Info: Linking task4.elf
+nios2-elf-g++ -T'../task4_bsp//linker.x' -msys-crt0='../task4_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../task4_bsp/   -Wl,-Map=task4.map   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o task4.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert task4.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x1001030 --timestamp 1706376011 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name first_nios2_system --quartus_project_dir "/home/nik/eie/dsd/system_template_de1_soc" --jdi /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../hello_world.jdi --sopcinfo /home/nik/eie/dsd/system_template_de1_soc/software/task4_bsp/../../first_nios2_system.sopcinfo
+Picked up JAVA_TOOL_OPTIONS: -Dsun.java2d.uiScale=1.0
+Info: (task4.elf) 83 KBytes program size (code + initialized data).
+Info:             8101 KBytes free for stack + heap.
+Info: Creating task4.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source task4.elf >task4.objdump
+[task4 build complete]
+17:53:26 **** Incremental Build of configuration Nios II for project task4_bsp ****
+make all 
+[BSP build complete]
+17:56:45 **** Incremental Build of configuration Nios II for project task4 ****
+make all 
+Info: Building ../task4_bsp/
+make --no-print-directory -C ../task4_bsp/
+[BSP build complete]
+[task4 build complete]
+17:56:47 **** Incremental Build of configuration Nios II for project task4_bsp ****
+make all 
+[BSP build complete]

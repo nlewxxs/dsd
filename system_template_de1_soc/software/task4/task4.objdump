@@ -1267,7 +1267,7 @@ int main()
 	clock_t exec_t1;
 	clock_t exec_t2;
 
-	generateVector(x); // generate input vector
+	generateVector(x); // generate local VTune can't seem to find th input vector
   8005bc:	00bffc34 	movhi	r2,65520
   8005c0:	1083fb04 	addi	r2,r2,4076
   8005c4:	e085883a 	add	r2,fp,r2
@@ -1279,8 +1279,6 @@ int main()
   8005d0:	0009883a 	mov	r4,zero
   8005d4:	08109600 	call	810960 <times>
   8005d8:	e0bfff15 	stw	r2,-4(fp)
-
-//	for (int i = 0; i < 1000; i++) {
 	y = sumVector(x, N);
   8005dc:	00bffc34 	movhi	r2,65520
   8005e0:	1083fb04 	addi	r2,r2,4076
@@ -1290,8 +1288,6 @@ int main()
   8005f0:	1009883a 	mov	r4,r2
   8005f4:	08003300 	call	800330 <sumVector>
   8005f8:	e0bffe15 	stw	r2,-8(fp)
-//	}
-
 	exec_t2 = times(NULL);
   8005fc:	0009883a 	mov	r4,zero
   800600:	08109600 	call	810960 <times>
