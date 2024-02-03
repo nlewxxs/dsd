@@ -58,7 +58,7 @@ float sumVector(float x[], int M) {
 int main()
 {
 	printf("----------------------\n");
-	printf("Task 4\n");
+	printf("Task 5\n");
 	printf("Params: N = %d, ", N);
 	printf("s = %f\n", step);
 

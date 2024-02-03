@@ -2,7 +2,7 @@ set_global_assignment -entity "first_nios2_system" -library "first_nios2_system"
 set_global_assignment -entity "first_nios2_system" -library "first_nios2_system" -name IP_TOOL_VERSION "20.1"
 set_global_assignment -entity "first_nios2_system" -library "first_nios2_system" -name IP_TOOL_ENV "Qsys"
 set_global_assignment -library "first_nios2_system" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../../first_nios2_system.sopcinfo"]
-set_global_assignment -entity "first_nios2_system" -library "first_nios2_system" -name SLD_INFO "QSYS_NAME first_nios2_system HAS_SOPCINFO 1 GENERATION_ID 1706376011"
+set_global_assignment -entity "first_nios2_system" -library "first_nios2_system" -name SLD_INFO "QSYS_NAME first_nios2_system HAS_SOPCINFO 1 GENERATION_ID 1706985369"
 set_global_assignment -library "first_nios2_system" -name SLD_FILE [file join $::quartus(qip_path) "first_nios2_system.regmap"]
 set_global_assignment -library "first_nios2_system" -name SLD_FILE [file join $::quartus(qip_path) "first_nios2_system.debuginfo"]
 set_global_assignment -entity "first_nios2_system" -library "first_nios2_system" -name IP_TARGETED_DEVICE_FAMILY "Cyclone V"
@@ -15,7 +15,7 @@ set_global_assignment -entity "first_nios2_system" -library "first_nios2_system"
 set_global_assignment -entity "first_nios2_system" -library "first_nios2_system" -name IP_COMPONENT_REPORT_HIERARCHY "On"
 set_global_assignment -entity "first_nios2_system" -library "first_nios2_system" -name IP_COMPONENT_INTERNAL "Off"
 set_global_assignment -entity "first_nios2_system" -library "first_nios2_system" -name IP_COMPONENT_VERSION "MS4w"
-set_global_assignment -entity "first_nios2_system" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "QVVUT19HRU5FUkFUSU9OX0lE::MTcwNjM3NjAxMQ==::QXV0byBHRU5FUkFUSU9OX0lE"
+set_global_assignment -entity "first_nios2_system" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "QVVUT19HRU5FUkFUSU9OX0lE::MTcwNjk4NTM2OQ==::QXV0byBHRU5FUkFUSU9OX0lE"
 set_global_assignment -entity "first_nios2_system" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0VfRkFNSUxZ::Q3ljbG9uZSBW::QXV0byBERVZJQ0VfRkFNSUxZ"
 set_global_assignment -entity "first_nios2_system" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0U=::NUNTRU1BNUYzMUM2::QXV0byBERVZJQ0U="
 set_global_assignment -entity "first_nios2_system" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0VfU1BFRURHUkFERQ==::Ng==::QXV0byBERVZJQ0VfU1BFRURHUkFERQ=="
@@ -985,10 +985,10 @@ set_global_assignment -entity "first_nios2_system_cpu" -library "first_nios2_sys
 set_global_assignment -entity "first_nios2_system_cpu" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "Y3B1QXJjaFJldg==::MQ==::QXJjaGl0ZWN0dXJlIFJldmlzaW9u"
 set_global_assignment -entity "first_nios2_system_cpu" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "c3RyYXRpeF9kc3BibG9ja19zaGlmdF9tdWw=::ZmFsc2U=::c3RyYXRpeF9kc3BibG9ja19zaGlmdF9tdWw="
 set_global_assignment -entity "first_nios2_system_cpu" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "c2hpZnRlclR5cGU=::ZmFzdF9sZV9zaGlmdA==::c2hpZnRlclR5cGU="
-set_global_assignment -entity "first_nios2_system_cpu" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "bXVsdGlwbGllclR5cGU=::bm9fbXVs::bXVsdGlwbGllclR5cGU="
+set_global_assignment -entity "first_nios2_system_cpu" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "bXVsdGlwbGllclR5cGU=::bXVsX2Zhc3Q2NA==::bXVsdGlwbGllclR5cGU="
 set_global_assignment -entity "first_nios2_system_cpu" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "bXVsX3NoaWZ0X2Nob2ljZQ==::MQ==::TXVsdGlwbHkvU2hpZnQvUm90YXRlIEhhcmR3YXJl"
-set_global_assignment -entity "first_nios2_system_cpu" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "bXVsXzMyX2ltcGw=::MA==::TXVsdGlwbHkgSW1wbGVtZW50YXRpb24="
-set_global_assignment -entity "first_nios2_system_cpu" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "bXVsXzY0X2ltcGw=::MA==::TXVsdGlwbHkgRXh0ZW5kZWQgSW1wbGVtZW50YXRpb24="
+set_global_assignment -entity "first_nios2_system_cpu" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "bXVsXzMyX2ltcGw=::Mg==::TXVsdGlwbHkgSW1wbGVtZW50YXRpb24="
+set_global_assignment -entity "first_nios2_system_cpu" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "bXVsXzY0X2ltcGw=::MQ==::TXVsdGlwbHkgRXh0ZW5kZWQgSW1wbGVtZW50YXRpb24="
 set_global_assignment -entity "first_nios2_system_cpu" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "c2hpZnRfcm90X2ltcGw=::MQ==::U2hpZnQvUm90YXRlIEltcGxlbWVudGF0aW9u"
 set_global_assignment -entity "first_nios2_system_cpu" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "ZGl2aWRlclR5cGU=::bm9fZGl2::RGl2aWRlIEhhcmR3YXJl"
 set_global_assignment -entity "first_nios2_system_cpu" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "aW1wbA==::RmFzdA==::TmlvcyBJSSBDb3Jl"
@@ -1159,7 +1159,7 @@ set_global_assignment -entity "first_nios2_system_cpu_cpu" -library "first_nios2
 set_global_assignment -entity "first_nios2_system_cpu_cpu" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "Y3B1QXJjaFJldg==::MQ==::QXJjaGl0ZWN0dXJlIFJldmlzaW9u"
 set_global_assignment -entity "first_nios2_system_cpu_cpu" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "c3RyYXRpeF9kc3BibG9ja19zaGlmdF9tdWw=::ZmFsc2U=::VXNlIERTUCBCbG9jayBmb3IgU2hpZnRlciBhbmQgTXVsdGlwbGllcg=="
 set_global_assignment -entity "first_nios2_system_cpu_cpu" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "c2hpZnRlclR5cGU=::ZmFzdF9sZV9zaGlmdA==::U2hpZnRlcg=="
-set_global_assignment -entity "first_nios2_system_cpu_cpu" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "bXVsdGlwbGllclR5cGU=::bm9fbXVs::TXVsdGlwbGllcg=="
+set_global_assignment -entity "first_nios2_system_cpu_cpu" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "bXVsdGlwbGllclR5cGU=::bXVsX2Zhc3Q2NA==::TXVsdGlwbGllcg=="
 set_global_assignment -entity "first_nios2_system_cpu_cpu" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "ZGl2aWRlclR5cGU=::bm9fZGl2::RGl2aWRlcg=="
 set_global_assignment -entity "first_nios2_system_cpu_cpu" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "bXB1X21pbkluc3RSZWdpb25TaXpl::MTI=::TWluaW11bSBpbnN0cnVjdGlvbiByZWdpb24gc2l6ZQ=="
 set_global_assignment -entity "first_nios2_system_cpu_cpu" -library "first_nios2_system" -name IP_COMPONENT_PARAMETER "bXB1X21pbkRhdGFSZWdpb25TaXpl::MTI=::TWluaW11bSBkYXRhIHJlZ2lvbiBzaXpl"
@@ -1336,6 +1336,7 @@ set_global_assignment -library "first_nios2_system" -name VERILOG_FILE [file joi
 set_global_assignment -library "first_nios2_system" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/first_nios2_system_cpu_cpu_rf_ram_b.mif"]
 set_global_assignment -library "first_nios2_system" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/first_nios2_system_cpu_cpu_dc_tag_ram.mif"]
 set_global_assignment -library "first_nios2_system" -name SDC_FILE [file join $::quartus(qip_path) "submodules/first_nios2_system_cpu_cpu.sdc"]
+set_global_assignment -library "first_nios2_system" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/first_nios2_system_cpu_cpu_mult_cell.v"]
 set_global_assignment -library "first_nios2_system" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_nios2_gen2_rtl_module.sv"]
 set_global_assignment -library "first_nios2_system" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/altera_nios2_gen2_rtl_module.ocp"]
 

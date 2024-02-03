@@ -5,11 +5,11 @@
  version="1.0"
  fabric="QSYS">
  <!-- Format version 20.1 711 (Future versions may contain additional information.) -->
- <!-- 2024.01.27.17:20:11 -->
+ <!-- 2024.02.03.18:36:10 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1706376011</value>
+  <value>1706985369</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -510,11 +510,11 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.HARDWARE_MULTIPLY_PRESENT</name>
-   <value>0</value>
+   <value>1</value>
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.HARDWARE_MULX_PRESENT</name>
-   <value>0</value>
+   <value>1</value>
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.HAS_DEBUG_CORE</name>
@@ -622,6 +622,14 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.altr,has-initda</name>
+   <value>1</value>
+  </assignment>
+  <assignment>
+   <name>embeddedsw.dts.params.altr,has-mul</name>
+   <value>1</value>
+  </assignment>
+  <assignment>
+   <name>embeddedsw.dts.params.altr,has-mulx</name>
    <value>1</value>
   </assignment>
   <assignment>
@@ -1146,7 +1154,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="multiplierType">
    <type>java.lang.String</type>
-   <value>no_mul</value>
+   <value>mul_fast64</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -1162,7 +1170,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="mul_32_impl">
    <type>int</type>
-   <value>0</value>
+   <value>2</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -1170,7 +1178,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="mul_64_impl">
    <type>int</type>
-   <value>0</value>
+   <value>1</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -6953,7 +6961,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.TIMESTAMP</name>
-   <value>1706376011</value>
+   <value>1706985369</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.compatible</name>
@@ -6973,7 +6981,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.timestamp</name>
-   <value>1706376011</value>
+   <value>1706985369</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.vendor</name>
@@ -6989,7 +6997,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="timestamp">
    <type>int</type>
-   <value>1706376011</value>
+   <value>1706985369</value>
    <derived>true</derived>
    <enabled>false</enabled>
    <visible>false</visible>
