@@ -1,0 +1,83 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nik/eie/dsd/mul/simulation/modelsim
+vmul
+Z1 !s110 1707687361
+!i10b 1
+!s100 ^FcDfo16?:CGSKI8jhQ7c3
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IiGa0C?VbnMm8YoIlfE`mO3
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1707686442
+8/home/nik/eie/dsd/mul/mul.v
+F/home/nik/eie/dsd/mul/mul.v
+!i122 0
+L0 40 31
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1707687361.000000
+!s107 /home/nik/eie/dsd/mul/mul.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/nik/eie/dsd/mul|/home/nik/eie/dsd/mul/mul.v|
+!i113 1
+Z6 o-vlog01compat -work work
+!s92 -vlog01compat -work work +incdir+/home/nik/eie/dsd/mul
+Z7 tCvgOpt 0
+vmult_68n
+R1
+!i10b 1
+!s100 UUL?B:T3lbEabE<l2Y>D52
+R2
+I>WY]mYiHJjXNIQnmaBJ292
+R3
+R0
+w1707687336
+8/home/nik/eie/dsd/mul/db/mult_68n.v
+F/home/nik/eie/dsd/mul/db/mult_68n.v
+!i122 1
+L0 29 21
+R4
+r1
+!s85 0
+31
+R5
+!s107 /home/nik/eie/dsd/mul/db/mult_68n.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/nik/eie/dsd/mul/db|/home/nik/eie/dsd/mul/db/mult_68n.v|
+!i113 1
+R6
+!s92 -vlog01compat -work work +incdir+/home/nik/eie/dsd/mul/db
+R7
+vtb
+!s110 1707687362
+!i10b 1
+!s100 ?bWeJeY=?8Uf9`NCiGPzn3
+R2
+I2R_nSNkKlnhG^`8V4ze8H0
+R3
+R0
+w1707687069
+8/home/nik/eie/dsd/mul/../testbench_1.v
+F/home/nik/eie/dsd/mul/../testbench_1.v
+!i122 2
+L0 2 55
+R4
+r1
+!s85 0
+31
+!s108 1707687362.000000
+!s107 /home/nik/eie/dsd/mul/../testbench_1.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/nik/eie/dsd/mul/..|/home/nik/eie/dsd/mul/../testbench_1.v|
+!i113 1
+R6
+!s92 -vlog01compat -work work +incdir+/home/nik/eie/dsd/mul/..
+R7

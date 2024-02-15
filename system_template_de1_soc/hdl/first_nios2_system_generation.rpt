@@ -10,6 +10,8 @@ Progress: Adding jtag_uart [altera_avalon_jtag_uart 20.1]
 Progress: Parameterizing module jtag_uart
 Progress: Adding led_pio [altera_avalon_pio 20.1]
 Progress: Parameterizing module led_pio
+Progress: Adding lpm_mult_custom_0 [lpm_mult_custom 1.0]
+Progress: Parameterizing module lpm_mult_custom_0
 Progress: Adding onchip_mem [altera_avalon_onchip_memory2 20.1]
 Progress: Parameterizing module onchip_mem
 Progress: Adding sdram [altera_avalon_new_sdram_controller 20.1]
@@ -41,6 +43,8 @@ Progress: Adding jtag_uart [altera_avalon_jtag_uart 20.1]
 Progress: Parameterizing module jtag_uart
 Progress: Adding led_pio [altera_avalon_pio 20.1]
 Progress: Parameterizing module led_pio
+Progress: Adding lpm_mult_custom_0 [lpm_mult_custom 1.0]
+Progress: Parameterizing module lpm_mult_custom_0
 Progress: Adding onchip_mem [altera_avalon_onchip_memory2 20.1]
 Progress: Parameterizing module onchip_mem
 Progress: Adding sdram [altera_avalon_new_sdram_controller 20.1]
@@ -60,22 +64,26 @@ Info: first_nios2_system.sysid: Time stamp will be automatically updated when th
 Info: first_nios2_system: Generating first_nios2_system "first_nios2_system" for QUARTUS_SYNTH
 Info: cpu: "first_nios2_system" instantiated altera_nios2_gen2 "cpu"
 Info: jtag_uart: Starting RTL generation for module 'first_nios2_system_jtag_uart'
-Info: jtag_uart:   Generation command is [exec /home/nik/intelFPGA/quartus/linux64/perl/bin/perl -I /home/nik/intelFPGA/quartus/linux64/perl/lib -I /home/nik/intelFPGA/quartus/sopc_builder/bin/europa -I /home/nik/intelFPGA/quartus/sopc_builder/bin -I /home/nik/intelFPGA/quartus/../ip/altera/sopc_builder_ip/common -I /home/nik/intelFPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- /home/nik/intelFPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=first_nios2_system_jtag_uart --dir=/tmp/alt9756_2774200462372135838.dir/0002_jtag_uart_gen/ --quartus_dir=/home/nik/intelFPGA/quartus --verilog --config=/tmp/alt9756_2774200462372135838.dir/0002_jtag_uart_gen//first_nios2_system_jtag_uart_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag_uart:   Generation command is [exec /home/nik/intelFPGA/quartus/linux64/perl/bin/perl -I /home/nik/intelFPGA/quartus/linux64/perl/lib -I /home/nik/intelFPGA/quartus/sopc_builder/bin/europa -I /home/nik/intelFPGA/quartus/sopc_builder/bin -I /home/nik/intelFPGA/quartus/../ip/altera/sopc_builder_ip/common -I /home/nik/intelFPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- /home/nik/intelFPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=first_nios2_system_jtag_uart --dir=/tmp/alt9768_6224349301280416678.dir/0002_jtag_uart_gen/ --quartus_dir=/home/nik/intelFPGA/quartus --verilog --config=/tmp/alt9768_6224349301280416678.dir/0002_jtag_uart_gen//first_nios2_system_jtag_uart_component_configuration.pl  --do_build_sim=0  ]
 Info: jtag_uart: Done RTL generation for module 'first_nios2_system_jtag_uart'
 Info: jtag_uart: "first_nios2_system" instantiated altera_avalon_jtag_uart "jtag_uart"
 Info: led_pio: Starting RTL generation for module 'first_nios2_system_led_pio'
-Info: led_pio:   Generation command is [exec /home/nik/intelFPGA/quartus/linux64/perl/bin/perl -I /home/nik/intelFPGA/quartus/linux64/perl/lib -I /home/nik/intelFPGA/quartus/sopc_builder/bin/europa -I /home/nik/intelFPGA/quartus/sopc_builder/bin -I /home/nik/intelFPGA/quartus/../ip/altera/sopc_builder_ip/common -I /home/nik/intelFPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /home/nik/intelFPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=first_nios2_system_led_pio --dir=/tmp/alt9756_2774200462372135838.dir/0003_led_pio_gen/ --quartus_dir=/home/nik/intelFPGA/quartus --verilog --config=/tmp/alt9756_2774200462372135838.dir/0003_led_pio_gen//first_nios2_system_led_pio_component_configuration.pl  --do_build_sim=0  ]
+Info: led_pio:   Generation command is [exec /home/nik/intelFPGA/quartus/linux64/perl/bin/perl -I /home/nik/intelFPGA/quartus/linux64/perl/lib -I /home/nik/intelFPGA/quartus/sopc_builder/bin/europa -I /home/nik/intelFPGA/quartus/sopc_builder/bin -I /home/nik/intelFPGA/quartus/../ip/altera/sopc_builder_ip/common -I /home/nik/intelFPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /home/nik/intelFPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=first_nios2_system_led_pio --dir=/tmp/alt9768_6224349301280416678.dir/0003_led_pio_gen/ --quartus_dir=/home/nik/intelFPGA/quartus --verilog --config=/tmp/alt9768_6224349301280416678.dir/0003_led_pio_gen//first_nios2_system_led_pio_component_configuration.pl  --do_build_sim=0  ]
 Info: led_pio: Done RTL generation for module 'first_nios2_system_led_pio'
 Info: led_pio: "first_nios2_system" instantiated altera_avalon_pio "led_pio"
+Info: lpm_mult_custom_0: "first_nios2_system" instantiated lpm_mult_custom "lpm_mult_custom_0"
 Info: sdram: Starting RTL generation for module 'first_nios2_system_sdram'
-Info: sdram:   Generation command is [exec /home/nik/intelFPGA/quartus/linux64/perl/bin/perl -I /home/nik/intelFPGA/quartus/linux64/perl/lib -I /home/nik/intelFPGA/quartus/sopc_builder/bin/europa -I /home/nik/intelFPGA/quartus/sopc_builder/bin -I /home/nik/intelFPGA/quartus/../ip/altera/sopc_builder_ip/common -I /home/nik/intelFPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- /home/nik/intelFPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=first_nios2_system_sdram --dir=/tmp/alt9756_2774200462372135838.dir/0004_sdram_gen/ --quartus_dir=/home/nik/intelFPGA/quartus --verilog --config=/tmp/alt9756_2774200462372135838.dir/0004_sdram_gen//first_nios2_system_sdram_component_configuration.pl  --do_build_sim=0  ]
+Info: sdram:   Generation command is [exec /home/nik/intelFPGA/quartus/linux64/perl/bin/perl -I /home/nik/intelFPGA/quartus/linux64/perl/lib -I /home/nik/intelFPGA/quartus/sopc_builder/bin/europa -I /home/nik/intelFPGA/quartus/sopc_builder/bin -I /home/nik/intelFPGA/quartus/../ip/altera/sopc_builder_ip/common -I /home/nik/intelFPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- /home/nik/intelFPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=first_nios2_system_sdram --dir=/tmp/alt9768_6224349301280416678.dir/0005_sdram_gen/ --quartus_dir=/home/nik/intelFPGA/quartus --verilog --config=/tmp/alt9768_6224349301280416678.dir/0005_sdram_gen//first_nios2_system_sdram_component_configuration.pl  --do_build_sim=0  ]
 Info: sdram: Done RTL generation for module 'first_nios2_system_sdram'
 Info: sdram: "first_nios2_system" instantiated altera_avalon_new_sdram_controller "sdram"
 Info: sys_clk_timer: Starting RTL generation for module 'first_nios2_system_sys_clk_timer'
-Info: sys_clk_timer:   Generation command is [exec /home/nik/intelFPGA/quartus/linux64//perl/bin/perl -I /home/nik/intelFPGA/quartus/linux64//perl/lib -I /home/nik/intelFPGA/quartus/sopc_builder/bin/europa -I /home/nik/intelFPGA/quartus/sopc_builder/bin -I /home/nik/intelFPGA/quartus/../ip/altera/sopc_builder_ip/common -I /home/nik/intelFPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- /home/nik/intelFPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=first_nios2_system_sys_clk_timer --dir=/tmp/alt9756_2774200462372135838.dir/0005_sys_clk_timer_gen/ --quartus_dir=/home/nik/intelFPGA/quartus --verilog --config=/tmp/alt9756_2774200462372135838.dir/0005_sys_clk_timer_gen//first_nios2_system_sys_clk_timer_component_configuration.pl  --do_build_sim=0  ]
+Info: sys_clk_timer:   Generation command is [exec /home/nik/intelFPGA/quartus/linux64//perl/bin/perl -I /home/nik/intelFPGA/quartus/linux64//perl/lib -I /home/nik/intelFPGA/quartus/sopc_builder/bin/europa -I /home/nik/intelFPGA/quartus/sopc_builder/bin -I /home/nik/intelFPGA/quartus/../ip/altera/sopc_builder_ip/common -I /home/nik/intelFPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- /home/nik/intelFPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=first_nios2_system_sys_clk_timer --dir=/tmp/alt9768_6224349301280416678.dir/0006_sys_clk_timer_gen/ --quartus_dir=/home/nik/intelFPGA/quartus --verilog --config=/tmp/alt9768_6224349301280416678.dir/0006_sys_clk_timer_gen//first_nios2_system_sys_clk_timer_component_configuration.pl  --do_build_sim=0  ]
 Info: sys_clk_timer: Done RTL generation for module 'first_nios2_system_sys_clk_timer'
 Info: sys_clk_timer: "first_nios2_system" instantiated altera_avalon_timer "sys_clk_timer"
 Info: sysid: "first_nios2_system" instantiated altera_avalon_sysid_qsys "sysid"
+Info: cpu_custom_instruction_master_translator: "first_nios2_system" instantiated altera_customins_master_translator "cpu_custom_instruction_master_translator"
+Info: cpu_custom_instruction_master_comb_xconnect: "first_nios2_system" instantiated altera_customins_xconnect "cpu_custom_instruction_master_comb_xconnect"
+Info: cpu_custom_instruction_master_comb_slave_translator0: "first_nios2_system" instantiated altera_customins_slave_translator "cpu_custom_instruction_master_comb_slave_translator0"
 Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
@@ -86,21 +94,21 @@ Info: mm_interconnect_0: "first_nios2_system" instantiated altera_mm_interconnec
 Info: irq_mapper: "first_nios2_system" instantiated altera_irq_mapper "irq_mapper"
 Info: rst_controller: "first_nios2_system" instantiated altera_reset_controller "rst_controller"
 Info: cpu: Starting RTL generation for module 'first_nios2_system_cpu_cpu'
-Info: cpu:   Generation command is [exec /home/nik/intelFPGA/quartus/linux64//perl/bin/perl -I /home/nik/intelFPGA/quartus/linux64//perl/lib -I /home/nik/intelFPGA/quartus/sopc_builder/bin/europa -I /home/nik/intelFPGA/quartus/sopc_builder/bin -I /home/nik/intelFPGA/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I /home/nik/intelFPGA/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I /home/nik/intelFPGA/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I /home/nik/intelFPGA/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- /home/nik/intelFPGA/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.pl --name=first_nios2_system_cpu_cpu --dir=/tmp/alt9756_2774200462372135838.dir/0009_cpu_gen/ --quartus_bindir=/home/nik/intelFPGA/quartus/linux64/ --verilog --config=/tmp/alt9756_2774200462372135838.dir/0009_cpu_gen//first_nios2_system_cpu_cpu_processor_configuration.pl  --do_build_sim=0  ]
-Info: cpu: # 2024.02.03 18:35:28 (*) Starting Nios II generation
-Info: cpu: # 2024.02.03 18:35:28 (*)   Elaborating CPU configuration settings
-Info: cpu: # 2024.02.03 18:35:28 (*)   Creating all objects for CPU
-Info: cpu: # 2024.02.03 18:35:28 (*)     Testbench
-Info: cpu: # 2024.02.03 18:35:28 (*)     Instruction decoding
-Info: cpu: # 2024.02.03 18:35:28 (*)       Instruction fields
-Info: cpu: # 2024.02.03 18:35:28 (*)       Instruction decodes
-Info: cpu: # 2024.02.03 18:35:29 (*)       Signals for RTL simulation waveforms
-Info: cpu: # 2024.02.03 18:35:29 (*)       Instruction controls
-Info: cpu: # 2024.02.03 18:35:29 (*)     Pipeline frontend
-Info: cpu: # 2024.02.03 18:35:29 (*)     Pipeline backend
-Info: cpu: # 2024.02.03 18:35:31 (*)   Generating RTL from CPU objects
-Info: cpu: # 2024.02.03 18:35:31 (*)   Creating plain-text RTL
-Info: cpu: # 2024.02.03 18:35:32 (*) Done Nios II generation
+Info: cpu:   Generation command is [exec /home/nik/intelFPGA/quartus/linux64//perl/bin/perl -I /home/nik/intelFPGA/quartus/linux64//perl/lib -I /home/nik/intelFPGA/quartus/sopc_builder/bin/europa -I /home/nik/intelFPGA/quartus/sopc_builder/bin -I /home/nik/intelFPGA/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I /home/nik/intelFPGA/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I /home/nik/intelFPGA/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I /home/nik/intelFPGA/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- /home/nik/intelFPGA/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.pl --name=first_nios2_system_cpu_cpu --dir=/tmp/alt9768_6224349301280416678.dir/0013_cpu_gen/ --quartus_bindir=/home/nik/intelFPGA/quartus/linux64/ --verilog --config=/tmp/alt9768_6224349301280416678.dir/0013_cpu_gen//first_nios2_system_cpu_cpu_processor_configuration.pl  --do_build_sim=0  ]
+Info: cpu: # 2024.02.15 14:29:05 (*) Starting Nios II generation
+Info: cpu: # 2024.02.15 14:29:05 (*)   Elaborating CPU configuration settings
+Info: cpu: # 2024.02.15 14:29:05 (*)   Creating all objects for CPU
+Info: cpu: # 2024.02.15 14:29:05 (*)     Testbench
+Info: cpu: # 2024.02.15 14:29:05 (*)     Instruction decoding
+Info: cpu: # 2024.02.15 14:29:05 (*)       Instruction fields
+Info: cpu: # 2024.02.15 14:29:05 (*)       Instruction decodes
+Info: cpu: # 2024.02.15 14:29:05 (*)       Signals for RTL simulation waveforms
+Info: cpu: # 2024.02.15 14:29:06 (*)       Instruction controls
+Info: cpu: # 2024.02.15 14:29:06 (*)     Pipeline frontend
+Info: cpu: # 2024.02.15 14:29:06 (*)     Pipeline backend
+Info: cpu: # 2024.02.15 14:29:07 (*)   Generating RTL from CPU objects
+Info: cpu: # 2024.02.15 14:29:07 (*)   Creating plain-text RTL
+Info: cpu: # 2024.02.15 14:29:09 (*) Done Nios II generation
 Info: cpu: Done RTL generation for module 'first_nios2_system_cpu_cpu'
 Info: cpu: "cpu" instantiated altera_nios2_gen2_unit "cpu"
 Info: cpu_data_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "cpu_data_master_translator"
@@ -135,6 +143,6 @@ Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapt
 Info: avalon_st_adapter_005: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter_005"
 Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
 Info: error_adapter_0: "avalon_st_adapter_005" instantiated error_adapter "error_adapter_0"
-Info: first_nios2_system: Done "first_nios2_system" with 36 modules, 64 files
+Info: first_nios2_system: Done "first_nios2_system" with 40 modules, 69 files
 Info: qsys-generate succeeded.
 Info: Finished: Create HDL design files for synthesis

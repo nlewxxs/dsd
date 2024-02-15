@@ -10,7 +10,7 @@ module tb ();
 
 	//Instantiate the DUT
 	//mul refers to the verilog module defined by the LPM_MULT ip
-	mul unit(
+	mult_68n unit(
 		.dataa(dataa),
 		.datab(datab), 
 		.result(result)

@@ -10,6 +10,7 @@
    <endaddress preferredWidth="395" />
    <opcodeName preferredWidth="359" />
    <baseaddress preferredWidth="189" />
+   <export preferredWidth="453" />
   </columns>
  </systemtable>
  <library expandedCategories="Library,Project" />
