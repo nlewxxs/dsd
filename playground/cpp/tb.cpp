@@ -1,7 +1,6 @@
 /* A testbench to verify a DUT using Verilator */
 
 #include <iostream>
-#include <chrono>
 #include "verilated.h"
 #include "verilated_vcd_c.h"
 #include "Vtop.h"
