@@ -1,6 +1,7 @@
 /* A testbench to verify a DUT using Verilator */
 
 #include <iostream>
+#include <bitset>
 #include "verilated.h"
 #include "verilated_vcd_c.h"
 #include "Vtop.h"
@@ -19,13 +20,10 @@ int main(int argc, char** argv, char** env) {
 
     // initialise
     dut->clk = 0;
-    dut->count = 0;
-
-    for (int i = 0; i < 100; i++) {
-        dut->count++;
-        dut->clk = !dut->clk;
-        dut->eval();
-    }
+    dut->in = 0b01000010101010100100000000000000;
+    dut->eval();
+    std::cout << "Converting: \t" << std::hex << dut->in << " \t| " << std::bitset<32>(dut->in) << std::endl;
+    std::cout << "Got: \t\t" << std::hex << dut->out << " \t| " << std::bitset<32>(dut->out) << std::endl;
 
 // housekeeping
 tfp->close();

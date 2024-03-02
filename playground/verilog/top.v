@@ -1,11 +1,13 @@
 module top (
     input clk,
-    input [31:0] count,
-    output reg [31:0] inc
+    input [31:0] in,
+    output [31:0] out
 );
-    always @(posedge clk) begin
-       inc <= count + 1;
-    end
+
+fp_to_fixed fp_converter (
+    .fp_i(in),
+    .fixed_o(out)
+);
 
 endmodule;
 
