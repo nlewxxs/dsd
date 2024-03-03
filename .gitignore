@@ -1,4 +1,5 @@
 system_template_de1_soc/.metadata
 .vscode/
 playground/obj_dir/
+playground/top.vcd
 
