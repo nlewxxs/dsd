@@ -30,10 +30,10 @@ foo = monte_carlo(100);
 
 function results = monte_carlo(samples)
     % vary the number of iterations and the wordlength.
-    iterations_ub = 40; % upper bound for number of cordic iterations
-    iterations_lb = 1; % lower bound for number of cordic iterations
-    wordlength_ub = 32; % upper bound for wordlength
-    wordlength_lb = 4; % lower bound for wordlength
+    iterations_ub = 25; % upper bound for number of cordic iterations
+    iterations_lb = 5; % lower bound for number of cordic iterations
+    wordlength_ub = 2; % upper bound for wordlength
+    wordlength_lb = 2; % lower bound for wordlength
 
     % init results array, cell to allow tuples.
     results = cell(wordlength_ub - wordlength_lb, iterations_ub - iterations_lb);
@@ -79,6 +79,7 @@ function results = monte_carlo(samples)
             upper_ep = mean_e + 1.96*std(e)/sqrt(samples);
             interval = [lower_ep, upper_ep];
             % store error interval (account for array indexing)
+            fprintf("For wordlength: %d, iterations: %d, res: [%.20f, %.20f]\n", wordlength, iterations, lower_ep, upper_ep);
             results{wordlength - (wordlength_lb - 1), iterations - (iterations_lb - 1)} = interval;
         end
     end
