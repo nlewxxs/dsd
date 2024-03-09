@@ -30,10 +30,10 @@ foo = monte_carlo(1);
 
 function results = monte_carlo(samples)
     % vary the number of iterations and the wordlength.
-    iterations_ub = 35; % upper bound for number of cordic iterations
-    iterations_lb = 35; % lower bound for number of cordic iterations
-    wordlength_ub = 30; % upper bound for wordlength
-    wordlength_lb = 30; % lower bound for wordlength
+    iterations_ub = 10; % upper bound for number of cordic iterations
+    iterations_lb = 5; % lower bound for number of cordic iterations
+    wordlength_ub = 15; % upper bound for wordlength
+    wordlength_lb = 10; % lower bound for wordlength
 
     % init results array, cell to allow tuples.
     results = cell(wordlength_ub - wordlength_lb, iterations_ub - iterations_lb);
@@ -57,7 +57,6 @@ function results = monte_carlo(samples)
             iteration_idxs = 0:1:iterations-1;
             K = prod(sqrt(1 + 2.^(-2*(iteration_idxs))));
             alphas = calculate_alpha(iterations, wordlength, wordlength-2);
-            display(K);
 
             % Perform monte carlo simulation for some N number of samples
             for i = 1:samples
@@ -66,29 +65,25 @@ function results = monte_carlo(samples)
                 y0 = fi(0, true, wordlength, wordlength-2);
                 z0 = fi(thetas(i), true, wordlength, wordlength-2);
                 % call cordic but only keep the cos answer
-                fprintf("Starting values: \tx0 = %f, y0 = %f, z0 = %f\n", x0, y0, z0);
-                [x, ~, ~] = do_cordic(x0, y0, z0, iterations, alphas, 1);
+                [x, ~, ~] = do_cordic(x0, y0, z0, iterations, alphas, 0);
                 cordic_results(i) = x;
             end
 
             % post-processing
             % calculate error
             e = double(cordic_results) - true_values;
-            display(e);
-            % ME
+            % mean error
             mean_e = sum(e) / samples;
             % lower and upper end points using z-value corresponding to 95% confidence interval
             lower_ep = mean_e - 1.96*std(e)/sqrt(samples);
             upper_ep = mean_e + 1.96*std(e)/sqrt(samples);
             interval = [lower_ep, upper_ep];
-            display(interval);
-            % store error interval wiht 95% confidence
+            % store error interval (account for array indexing)
             results{wordlength - (wordlength_lb - 1), iterations - (iterations_lb - 1)} = interval;
         end
     end
     save("monte-carlo.mat", 'results');
 end
-
 
 function [x, y, z] = do_cordic(x0, y0, z0, N, alphas, PARAM_DEBUG_CORDIC_OUTPUT)
     % init
@@ -108,17 +103,13 @@ end
 function [x, y, z] = cordic_iteration(x, y, z, i, alphas)
     % first op - lookup
     alpha = fi(alphas(i), true, 101, 90); % note matlab uses 1-based indexing
-    % di = cast(di, 'like', zi);
+    % perform bitshifts with bitsra since it preserves the sign bit
     x_s = bitsra(x, i-1);
     y_s = bitsra(y, i-1);
     % update x and y
-    % fprintf("subtracting: %.20f\n", (sign(z))*alpha);
     x(:) = x - sign(z)*y_s;
     y(:) = y + sign(z)*x_s;
     z(:) = z - sign(z)*alpha;
-    % cast to avoid error of "unable to fully represent number"
-    % z = cast(z, 'like', zi);
-    % display(z);
 end
 
 function alpha = calculate_alpha(N, fixed, wordLength, fractionLength)
