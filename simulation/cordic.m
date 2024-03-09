@@ -26,14 +26,14 @@ if (PARAM_FIXED_POINT == 1); z0 = fi(PARAM_TEST_ANGLE, true, PARAM_WORD_LENGTH, 
 % [x, ~, ~] = do_cordic(x0, y0, z0, PARAM_N_ITERATIONS, alphas, PARAM_DEBUG_CORDIC_OUTPUT);
 % fprintf("True value: %.20f, Error: %.20f\n", cos(PARAM_TEST_ANGLE), abs(double(x)-cos(PARAM_TEST_ANGLE)));
 
-foo = monte_carlo(1);
+foo = monte_carlo(100);
 
 function results = monte_carlo(samples)
     % vary the number of iterations and the wordlength.
-    iterations_ub = 10; % upper bound for number of cordic iterations
-    iterations_lb = 5; % lower bound for number of cordic iterations
-    wordlength_ub = 15; % upper bound for wordlength
-    wordlength_lb = 10; % lower bound for wordlength
+    iterations_ub = 40; % upper bound for number of cordic iterations
+    iterations_lb = 1; % lower bound for number of cordic iterations
+    wordlength_ub = 32; % upper bound for wordlength
+    wordlength_lb = 4; % lower bound for wordlength
 
     % init results array, cell to allow tuples.
     results = cell(wordlength_ub - wordlength_lb, iterations_ub - iterations_lb);
