@@ -62,7 +62,6 @@ module fixed_to_fp (
             // now we just select the exponent, this translates to a simple mux.
             // Not the actual exponent, then add 128 to take care of both the IEE-754 bias and two's complement
             // in one go.
-            $display("\nCursor array is: %b", cursor_array);
 
             case(cursor_array)
                 19'b1000000000000000000: exponent = ~(8'b00000001) + 8'b10000000;
@@ -86,7 +85,6 @@ module fixed_to_fp (
                 19'b0000000000000000001: exponent = ~(8'b00010011) + 8'b10000000;
                 default: exponent = 8'b0;
             endcase
-            $display("Exponent is %b\n", exponent);
 
             fp_reg <= {sign_i, exponent, fractional_i << exponent, 4'b0};
         end

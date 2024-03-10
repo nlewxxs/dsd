@@ -47,8 +47,5 @@ module fp_to_fixed (
 
         integer_o <= integer_part;
         fractional_o <= fractional_part[22:4]; // KEEP ONLY BITS REQUIRED BY MONTE-CARLO RESULTS
-        $display("full fractional part: %b\n", fractional_part);
-        $display("truncated fractional part: %b\n", fractional_o);
-
     end
 endmodule;

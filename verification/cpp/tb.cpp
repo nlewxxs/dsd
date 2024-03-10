@@ -37,11 +37,6 @@ int main(int argc, char** argv, char** env) {
             dut->clk = !dut->clk;
             dut->eval();
         }
-        // std::cout << "-----------------------------" << std::endl;
-        // std::cout << "Converting: \t" << std::bitset<32>(dut->in) << std::endl;
-        // std::cout << "integer: \t" << std::bitset<2>(dut->int_out) << std::endl;
-        // std::cout << "fractional: \t" << std::bitset<23>(dut->frac_out) << std::endl;
-        // std::cout << "floating: \t" << std::bitset<32>(dut->fp_out) << std::endl;
     }
 
     // housekeeping
