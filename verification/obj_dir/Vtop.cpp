@@ -16,6 +16,7 @@ Vtop::Vtop(VerilatedContext* _vcontextp__, const char* _vcname__)
     , int_out{vlSymsp->TOP.int_out}
     , in{vlSymsp->TOP.in}
     , frac_out{vlSymsp->TOP.frac_out}
+    , fp_out{vlSymsp->TOP.fp_out}
     , rootp{&(vlSymsp->TOP)}
 {
     // Register model with the context

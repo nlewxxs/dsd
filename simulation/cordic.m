@@ -5,9 +5,9 @@ close all;
 format long;
 
 % Parameters to be tweaked to fit specification
-PARAM_WORD_LENGTH = 101; % 24 bit total wordlength extracted from FP->fixed conversion
-PARAM_FRACTION_LENGTH = 90; % 23 of these are fractional bits by default
-PARAM_N_ITERATIONS = 35; % number of cordic iterations
+PARAM_WORD_LENGTH = 21; % 24 bit total wordlength extracted from FP->fixed conversion
+PARAM_FRACTION_LENGTH = 19; % 23 of these are fractional bits by default
+PARAM_N_ITERATIONS = 17; % number of cordic iterations
 PARAM_TEST_ANGLE = 0.5; % test angle z0 in radians
 PARAM_DEBUG_CORDIC_OUTPUT = 0;
 PARAM_FIXED_POINT = 1;
@@ -22,11 +22,11 @@ if (PARAM_FIXED_POINT == 1); x0 = fi(1/K, true, PARAM_WORD_LENGTH, PARAM_FRACTIO
 if (PARAM_FIXED_POINT == 1); y0 = fi(0, true, PARAM_WORD_LENGTH, PARAM_FRACTION_LENGTH); else; y0 = 0; end
 if (PARAM_FIXED_POINT == 1); z0 = fi(PARAM_TEST_ANGLE, true, PARAM_WORD_LENGTH, PARAM_FRACTION_LENGTH); else; z0 = PARAM_TEST_ANGLE; end
 
-% fprintf("Starting values: \tx0 = %f, y0 = %f, z0 = %f\n", x0, y0, z0);
-% [x, ~, ~] = do_cordic(x0, y0, z0, PARAM_N_ITERATIONS, alphas, PARAM_DEBUG_CORDIC_OUTPUT);
-% fprintf("True value: %.20f, Error: %.20f\n", cos(PARAM_TEST_ANGLE), abs(double(x)-cos(PARAM_TEST_ANGLE)));
+fprintf("Starting values: \tx0 = %f, y0 = %f, z0 = %f\n", x0, y0, z0);
+[x, ~, ~] = do_cordic(x0, y0, z0, PARAM_N_ITERATIONS, alphas, PARAM_DEBUG_CORDIC_OUTPUT);
+fprintf("True value: %.20f, Error: %.20f\n", cos(PARAM_TEST_ANGLE), abs(double(x)-cos(PARAM_TEST_ANGLE)));
 
-foo = monte_carlo(100);
+% foo = monte_carlo(100);
 
 function results = monte_carlo(samples)
     % vary the number of iterations and the wordlength.
@@ -103,6 +103,7 @@ end
 % i - iteration number, starting from 0
 function [x, y, z] = cordic_iteration(x, y, z, i, alphas)
     % first op - lookup
+    display(alphas);
     alpha = fi(alphas(i), true, 101, 90); % note matlab uses 1-based indexing
     % perform bitshifts with bitsra since it preserves the sign bit
     x_s = bitsra(x, i-1);

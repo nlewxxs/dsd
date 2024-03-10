@@ -30,16 +30,18 @@ int main(int argc, char** argv, char** env) {
     dut->trace(tfp, 99);
     tfp->open("top.vcd");
 
-    for (auto& i : kTestCases) {
-        dut->clk = 0; // falling edge
-        dut->in = i;
-        dut->eval();
-        dut->clk = 1; // rising edge
-        dut->eval();
-        std::cout << "-----------------------------" << std::endl;
-        std::cout << "Converting: \t" << std::bitset<32>(dut->in) << std::endl;
-        std::cout << "integer: \t" << std::bitset<2>(dut->int_out) << std::endl;
-        std::cout << "fractional: \t" << std::bitset<23>(dut->frac_out) << std::endl;
+    for (std::size_t i = 0; i < kTestCases.size(); i++) {
+        dut->in = kTestCases[i];
+        for (int tick = 0; tick < 2; tick++) {
+            tfp->dump(2*i + tick);
+            dut->clk = !dut->clk;
+            dut->eval();
+        }
+        // std::cout << "-----------------------------" << std::endl;
+        // std::cout << "Converting: \t" << std::bitset<32>(dut->in) << std::endl;
+        // std::cout << "integer: \t" << std::bitset<2>(dut->int_out) << std::endl;
+        // std::cout << "fractional: \t" << std::bitset<23>(dut->frac_out) << std::endl;
+        // std::cout << "floating: \t" << std::bitset<32>(dut->fp_out) << std::endl;
     }
 
     // housekeeping

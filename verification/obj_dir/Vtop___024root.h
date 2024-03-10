@@ -17,10 +17,16 @@ class Vtop___024root final : public VerilatedModule {
     VL_OUT8(sign_out,0,0);
     VL_OUT8(int_out,0,0);
     CData/*0:0*/ top__DOT__fp_converter__DOT__unnamedblk1__DOT__integer_part;
+    CData/*0:0*/ top__DOT__fixed_converter__DOT__cursor;
+    CData/*7:0*/ top__DOT__fixed_converter__DOT__exponent;
     CData/*0:0*/ __Vclklast__TOP__clk;
     VL_IN(in,31,0);
-    VL_OUT(frac_out,22,0);
+    VL_OUT(frac_out,18,0);
+    VL_OUT(fp_out,31,0);
     IData/*22:0*/ top__DOT__fp_converter__DOT__unnamedblk1__DOT__fractional_part;
+    IData/*18:0*/ top__DOT__fixed_converter__DOT__cursor_array;
+    IData/*31:0*/ top__DOT__fixed_converter__DOT__fp_reg;
+    VlUnpacked<CData/*0:0*/, 2> __Vm_traceActivity;
 
     // INTERNAL VARIABLES
     Vtop__Syms* const vlSymsp;

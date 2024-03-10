@@ -3,7 +3,7 @@ module fp_to_fixed (
     input [31:0] fp_i, // floating point input
     output sign_o, // sign of fixed-point
     output reg integer_o, // integer part of fixed-point
-    output reg [22:0] fractional_o // fractional part of fixed-point
+    output reg [18:0] fractional_o // fractional part of fixed-point
 );
 
     reg [7:0] exponent;
@@ -46,7 +46,9 @@ module fp_to_fixed (
         end
 
         integer_o <= integer_part;
-        fractional_o <= fractional_part;
+        fractional_o <= fractional_part[22:4]; // KEEP ONLY BITS REQUIRED BY MONTE-CARLO RESULTS
+        $display("full fractional part: %b\n", fractional_part);
+        $display("truncated fractional part: %b\n", fractional_o);
 
     end
 endmodule;

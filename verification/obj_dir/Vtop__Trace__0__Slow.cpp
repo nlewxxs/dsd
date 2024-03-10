@@ -11,29 +11,42 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     // Init
     const int c = vlSymsp->__Vm_baseCode;
     // Body
-    tracep->declBit(c+1,"clk", false,-1);
-    tracep->declBus(c+2,"in", false,-1, 31,0);
-    tracep->declBit(c+3,"sign_out", false,-1);
-    tracep->declBit(c+4,"int_out", false,-1);
-    tracep->declBus(c+5,"frac_out", false,-1, 22,0);
+    tracep->declBit(c+7,"clk", false,-1);
+    tracep->declBus(c+8,"in", false,-1, 31,0);
+    tracep->declBit(c+9,"sign_out", false,-1);
+    tracep->declBit(c+10,"int_out", false,-1);
+    tracep->declBus(c+11,"frac_out", false,-1, 18,0);
+    tracep->declBus(c+12,"fp_out", false,-1, 31,0);
     tracep->pushNamePrefix("top ");
-    tracep->declBit(c+1,"clk", false,-1);
-    tracep->declBus(c+2,"in", false,-1, 31,0);
-    tracep->declBit(c+3,"sign_out", false,-1);
-    tracep->declBit(c+4,"int_out", false,-1);
-    tracep->declBus(c+5,"frac_out", false,-1, 22,0);
+    tracep->declBit(c+7,"clk", false,-1);
+    tracep->declBus(c+8,"in", false,-1, 31,0);
+    tracep->declBit(c+9,"sign_out", false,-1);
+    tracep->declBit(c+10,"int_out", false,-1);
+    tracep->declBus(c+11,"frac_out", false,-1, 18,0);
+    tracep->declBus(c+12,"fp_out", false,-1, 31,0);
+    tracep->pushNamePrefix("fixed_converter ");
+    tracep->declBit(c+7,"clk", false,-1);
+    tracep->declBit(c+9,"sign_i", false,-1);
+    tracep->declBit(c+10,"integer_i", false,-1);
+    tracep->declBus(c+11,"fractional_i", false,-1, 18,0);
+    tracep->declBus(c+12,"fp_o", false,-1, 31,0);
+    tracep->declBit(c+1,"cursor", false,-1);
+    tracep->declBus(c+2,"cursor_array", false,-1, 18,0);
+    tracep->declBus(c+3,"exponent", false,-1, 7,0);
+    tracep->declBus(c+4,"fp_reg", false,-1, 31,0);
+    tracep->popNamePrefix(1);
     tracep->pushNamePrefix("fp_converter ");
-    tracep->declBit(c+1,"clk", false,-1);
-    tracep->declBus(c+2,"fp_i", false,-1, 31,0);
-    tracep->declBit(c+3,"sign_o", false,-1);
-    tracep->declBit(c+4,"integer_o", false,-1);
-    tracep->declBus(c+5,"fractional_o", false,-1, 22,0);
-    tracep->declBus(c+6,"exponent", false,-1, 7,0);
-    tracep->declBus(c+7,"unbiased_exponent", false,-1, 7,0);
-    tracep->declBus(c+8,"significand", false,-1, 22,0);
+    tracep->declBit(c+7,"clk", false,-1);
+    tracep->declBus(c+8,"fp_i", false,-1, 31,0);
+    tracep->declBit(c+9,"sign_o", false,-1);
+    tracep->declBit(c+10,"integer_o", false,-1);
+    tracep->declBus(c+11,"fractional_o", false,-1, 18,0);
+    tracep->declBus(c+13,"exponent", false,-1, 7,0);
+    tracep->declBus(c+14,"unbiased_exponent", false,-1, 7,0);
+    tracep->declBus(c+15,"significand", false,-1, 22,0);
     tracep->pushNamePrefix("unnamedblk1 ");
-    tracep->declBit(c+9,"integer_part", false,-1);
-    tracep->declBus(c+10,"fractional_part", false,-1, 22,0);
+    tracep->declBit(c+5,"integer_part", false,-1);
+    tracep->declBus(c+6,"fractional_part", false,-1, 22,0);
     tracep->popNamePrefix(3);
 }
 
@@ -77,17 +90,22 @@ VL_ATTR_COLD void Vtop___024root__trace_full_sub_0(Vtop___024root* vlSelf, Veril
     // Init
     uint32_t* const oldp VL_ATTR_UNUSED = bufp->oldp(vlSymsp->__Vm_baseCode);
     // Body
-    bufp->fullBit(oldp+1,(vlSelf->clk));
-    bufp->fullIData(oldp+2,(vlSelf->in),32);
-    bufp->fullBit(oldp+3,(vlSelf->sign_out));
-    bufp->fullBit(oldp+4,(vlSelf->int_out));
-    bufp->fullIData(oldp+5,(vlSelf->frac_out),23);
-    bufp->fullCData(oldp+6,((0xffU & (vlSelf->in >> 0x17U))),8);
-    bufp->fullCData(oldp+7,((0xffU & (~ (((vlSelf->in 
-                                           >> 0x17U) 
-                                          - (IData)(0x7fU)) 
-                                         - (IData)(1U))))),8);
-    bufp->fullIData(oldp+8,((0x7fffffU & vlSelf->in)),23);
-    bufp->fullBit(oldp+9,(vlSelf->top__DOT__fp_converter__DOT__unnamedblk1__DOT__integer_part));
-    bufp->fullIData(oldp+10,(vlSelf->top__DOT__fp_converter__DOT__unnamedblk1__DOT__fractional_part),23);
+    bufp->fullBit(oldp+1,(vlSelf->top__DOT__fixed_converter__DOT__cursor));
+    bufp->fullIData(oldp+2,(vlSelf->top__DOT__fixed_converter__DOT__cursor_array),19);
+    bufp->fullCData(oldp+3,(vlSelf->top__DOT__fixed_converter__DOT__exponent),8);
+    bufp->fullIData(oldp+4,(vlSelf->top__DOT__fixed_converter__DOT__fp_reg),32);
+    bufp->fullBit(oldp+5,(vlSelf->top__DOT__fp_converter__DOT__unnamedblk1__DOT__integer_part));
+    bufp->fullIData(oldp+6,(vlSelf->top__DOT__fp_converter__DOT__unnamedblk1__DOT__fractional_part),23);
+    bufp->fullBit(oldp+7,(vlSelf->clk));
+    bufp->fullIData(oldp+8,(vlSelf->in),32);
+    bufp->fullBit(oldp+9,(vlSelf->sign_out));
+    bufp->fullBit(oldp+10,(vlSelf->int_out));
+    bufp->fullIData(oldp+11,(vlSelf->frac_out),19);
+    bufp->fullIData(oldp+12,(vlSelf->fp_out),32);
+    bufp->fullCData(oldp+13,((0xffU & (vlSelf->in >> 0x17U))),8);
+    bufp->fullCData(oldp+14,((0xffU & (~ (((vlSelf->in 
+                                            >> 0x17U) 
+                                           - (IData)(0x7fU)) 
+                                          - (IData)(1U))))),8);
+    bufp->fullIData(oldp+15,((0x7fffffU & vlSelf->in)),23);
 }
