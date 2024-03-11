@@ -70,8 +70,12 @@ module fixed_to_fp (
         // this is written with the assumption that the input will not be outside the required [-1, 1] range
         if (integer_i) begin
             // handle special cases
-            fp_reg = (sign_i == 1) ? 32'b00111111100000000000000000000000 : 32'b10111111100000000000000000000000;
-        end else begin
+            fp_reg = (sign_i) ? 32'b10111111100000000000000000000000 : 32'b00111111100000000000000000000000;
+        end
+        else if (!exponent) begin
+            fp_reg = 32'b0;
+        end
+        else begin
             // normalise the exponent as per the IEEE-754 rules
             fp_reg = {sign_i, ~exponent + 8'b10000000, fractional_i << exponent, 4'b0};
         end

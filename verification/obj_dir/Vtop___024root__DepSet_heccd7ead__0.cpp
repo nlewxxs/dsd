@@ -214,19 +214,17 @@ VL_INLINE_OPT void Vtop___024root___combo__TOP__0(Vtop___024root* vlSelf) {
                                             : 0U)))));
     vlSelf->top__DOT__fixed_converter__DOT__fp_reg 
         = ((IData)(vlSelf->int_out) ? ((IData)(vlSelf->sign_out)
-                                        ? 0x3f800000U
-                                        : 0xbf800000U)
-            : (((IData)(vlSelf->sign_out) << 0x1fU) 
-               | ((0x7f800000U & (((IData)(0x80U) + 
-                                   (~ (IData)(vlSelf->top__DOT__fixed_converter__DOT__unnamedblk1__DOT__exponent))) 
-                                  << 0x17U)) | (((0x12U 
-                                                  >= (IData)(vlSelf->top__DOT__fixed_converter__DOT__unnamedblk1__DOT__exponent))
-                                                  ? 
-                                                 (0x7ffffU 
-                                                  & (vlSelf->frac_out 
-                                                     << (IData)(vlSelf->top__DOT__fixed_converter__DOT__unnamedblk1__DOT__exponent)))
-                                                  : 0U) 
-                                                << 4U))));
+                                        ? 0xbf800000U
+                                        : 0x3f800000U)
+            : ((0U != (IData)(vlSelf->top__DOT__fixed_converter__DOT__unnamedblk1__DOT__exponent))
+                ? (((IData)(vlSelf->sign_out) << 0x1fU) 
+                   | ((0x7f800000U & (((IData)(0x80U) 
+                                       + (~ (IData)(vlSelf->top__DOT__fixed_converter__DOT__unnamedblk1__DOT__exponent))) 
+                                      << 0x17U)) | 
+                      (((0x12U >= (IData)(vlSelf->top__DOT__fixed_converter__DOT__unnamedblk1__DOT__exponent))
+                         ? (0x7ffffU & (vlSelf->frac_out 
+                                        << (IData)(vlSelf->top__DOT__fixed_converter__DOT__unnamedblk1__DOT__exponent)))
+                         : 0U) << 4U))) : 0U));
     vlSelf->fp_out = vlSelf->top__DOT__fixed_converter__DOT__fp_reg;
 }
 
