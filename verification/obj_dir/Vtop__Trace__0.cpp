@@ -24,25 +24,24 @@ void Vtop___024root__trace_chg_sub_0(Vtop___024root* vlSelf, VerilatedVcd::Buffe
     uint32_t* const oldp VL_ATTR_UNUSED = bufp->oldp(vlSymsp->__Vm_baseCode + 1);
     // Body
     if (VL_UNLIKELY(vlSelf->__Vm_traceActivity[1U])) {
-        bufp->chgBit(oldp+0,(vlSelf->top__DOT__fixed_converter__DOT__cursor));
-        bufp->chgIData(oldp+1,(vlSelf->top__DOT__fixed_converter__DOT__cursor_array),19);
-        bufp->chgCData(oldp+2,(vlSelf->top__DOT__fixed_converter__DOT__exponent),8);
-        bufp->chgIData(oldp+3,(vlSelf->top__DOT__fixed_converter__DOT__fp_reg),32);
-        bufp->chgBit(oldp+4,(vlSelf->top__DOT__fp_converter__DOT__unnamedblk1__DOT__integer_part));
-        bufp->chgIData(oldp+5,(vlSelf->top__DOT__fp_converter__DOT__unnamedblk1__DOT__fractional_part),23);
+        bufp->chgIData(oldp+0,(vlSelf->top__DOT__fixed_converter__DOT__fp_reg),32);
+        bufp->chgCData(oldp+1,(vlSelf->top__DOT__fixed_converter__DOT__unnamedblk1__DOT__exponent),8);
+        bufp->chgIData(oldp+2,(vlSelf->top__DOT__fixed_converter__DOT__unnamedblk1__DOT__bitwise_or_array),19);
+        bufp->chgBit(oldp+3,(vlSelf->top__DOT__fp_converter__DOT__unnamedblk1__DOT__integer_part));
+        bufp->chgIData(oldp+4,(vlSelf->top__DOT__fp_converter__DOT__unnamedblk1__DOT__fractional_part),23);
     }
-    bufp->chgBit(oldp+6,(vlSelf->clk));
-    bufp->chgIData(oldp+7,(vlSelf->in),32);
-    bufp->chgBit(oldp+8,(vlSelf->sign_out));
-    bufp->chgBit(oldp+9,(vlSelf->int_out));
-    bufp->chgIData(oldp+10,(vlSelf->frac_out),19);
-    bufp->chgIData(oldp+11,(vlSelf->fp_out),32);
-    bufp->chgCData(oldp+12,((0xffU & (vlSelf->in >> 0x17U))),8);
-    bufp->chgCData(oldp+13,((0xffU & (~ (((vlSelf->in 
+    bufp->chgBit(oldp+5,(vlSelf->clk));
+    bufp->chgIData(oldp+6,(vlSelf->in),32);
+    bufp->chgBit(oldp+7,(vlSelf->sign_out));
+    bufp->chgBit(oldp+8,(vlSelf->int_out));
+    bufp->chgIData(oldp+9,(vlSelf->frac_out),19);
+    bufp->chgIData(oldp+10,(vlSelf->fp_out),32);
+    bufp->chgCData(oldp+11,((0xffU & (vlSelf->in >> 0x17U))),8);
+    bufp->chgCData(oldp+12,((0xffU & (~ (((vlSelf->in 
                                            >> 0x17U) 
                                           - (IData)(0x7fU)) 
                                          - (IData)(1U))))),8);
-    bufp->chgIData(oldp+14,((0x7fffffU & vlSelf->in)),23);
+    bufp->chgIData(oldp+13,((0x7fffffU & vlSelf->in)),23);
 }
 
 void Vtop___024root__trace_cleanup(void* voidSelf, VerilatedVcd* /*unused*/) {

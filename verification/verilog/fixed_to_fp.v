@@ -1,5 +1,4 @@
 module fixed_to_fp (
-    input clk,
     input sign_i,
     input integer_i,
     input [18:0] fractional_i,
@@ -8,85 +7,73 @@ module fixed_to_fp (
     /* Given that we know the exponent will always be negative, we can exploit this to get an extremely
     fast and compact method of converting from fixed point to IEEE-754 floating point. */
 
-    reg cursor; // this tracks whether the MSB has been encountered yet
-    reg [18:0] cursor_array;
-    reg [7:0] exponent;
     reg [31:0] fp_reg;
-
     assign fp_o = fp_reg;
 
-    always @(posedge clk) begin
+    always @(*) begin
+        reg [7:0] exponent;
+        reg [18:0] bitwise_or_array; // explained below
+        /* SPECIAL METHOD */
+        /* If we can identify the location of the first 1, we can use this to determine the exponent
+        This can be done by propagating a bitwise OR operation throughout the fractional part.
+        This will evaluate to:
+            0 for all leading zeros
+            1 for the first 1 encountered in the input
+            1 for all subsequent 1s or 0s
+        The resulting bitwise_or_array will allow us to then select an exponent using a simple multiplexer.
+        */
+        bitwise_or_array[18] = fractional_i[18];
+        bitwise_or_array[17] = bitwise_or_array[18] | fractional_i[17];
+        bitwise_or_array[16] = bitwise_or_array[17] | fractional_i[16];
+        bitwise_or_array[15] = bitwise_or_array[16] | fractional_i[15];
+        bitwise_or_array[14] = bitwise_or_array[15] | fractional_i[14];
+        bitwise_or_array[13] = bitwise_or_array[14] | fractional_i[13];
+        bitwise_or_array[12] = bitwise_or_array[13] | fractional_i[12];
+        bitwise_or_array[11] = bitwise_or_array[12] | fractional_i[11];
+        bitwise_or_array[10] = bitwise_or_array[11] | fractional_i[10];
+        bitwise_or_array[9] = bitwise_or_array[10] | fractional_i[9];
+        bitwise_or_array[8] = bitwise_or_array[9] | fractional_i[8];
+        bitwise_or_array[7] = bitwise_or_array[8] | fractional_i[7];
+        bitwise_or_array[6] = bitwise_or_array[7] | fractional_i[6];
+        bitwise_or_array[5] = bitwise_or_array[6] | fractional_i[5];
+        bitwise_or_array[4] = bitwise_or_array[5] | fractional_i[4];
+        bitwise_or_array[3] = bitwise_or_array[4] | fractional_i[3];
+        bitwise_or_array[2] = bitwise_or_array[3] | fractional_i[2];
+        bitwise_or_array[1] = bitwise_or_array[2] | fractional_i[1];
+        bitwise_or_array[0] = bitwise_or_array[1] | fractional_i[0];
 
-        // check special cases first
-        if (integer_i == 1) begin
-            if (sign_i == 1) fp_reg <= 32'b1;
-            else fp_reg <= 32'b0;
+
+        // now we just select the exponent, this translates to a simple mux.
+        case(bitwise_or_array)
+            19'b1111111111111111111: exponent = 8'b00000001;
+            19'b0111111111111111111: exponent = 8'b00000010;
+            19'b0011111111111111111: exponent = 8'b00000011;
+            19'b0001111111111111111: exponent = 8'b00000100;
+            19'b0000111111111111111: exponent = 8'b00000101;
+            19'b0000011111111111111: exponent = 8'b00000110;
+            19'b0000001111111111111: exponent = 8'b00000111;
+            19'b0000000111111111111: exponent = 8'b00001000;
+            19'b0000000011111111111: exponent = 8'b00001001;
+            19'b0000000001111111111: exponent = 8'b00001010;
+            19'b0000000000111111111: exponent = 8'b00001011;
+            19'b0000000000011111111: exponent = 8'b00001100;
+            19'b0000000000001111111: exponent = 8'b00001101;
+            19'b0000000000000111111: exponent = 8'b00001110;
+            19'b0000000000000011111: exponent = 8'b00001111;
+            19'b0000000000000001111: exponent = 8'b00010000;
+            19'b0000000000000000111: exponent = 8'b00010001;
+            19'b0000000000000000011: exponent = 8'b00010010;
+            19'b0000000000000000001: exponent = 8'b00010011;
+            default: exponent = 8'b0;
+        endcase
+
+        // this is written with the assumption that the input will not be outside the required [-1, 1] range
+        if (integer_i) begin
+            // handle special cases
+            fp_reg = (sign_i == 1) ? 32'b00111111100000000000000000000000 : 32'b10111111100000000000000000000000;
         end else begin
-
-            /* SPECIAL ALGORITHM */
-            /* We keep a cursor to keep track of whether the MSB has been encountered yet or not.
-            The value of the cursor is then compared with each input bit using cur = !cur AND in.
-            This will evaluate to:
-                0 for all leading zeros
-                1 for the first 1 encountered in the input
-                0 for all subsequent 1s or 0s
-            Storing the value of the cursor in an output each time will allow us to then select an
-            exponent using a simple multiplexer.
-            */
-
-            // reset values
-            cursor = 0;
-            cursor_array = 0;
-
-            // perform sweep for MSB. These must be blocking statements.
-            cursor_array[18] = ~cursor & fractional_i[18];
-            cursor_array[17] = ~cursor & fractional_i[17];
-            cursor_array[16] = ~cursor & fractional_i[16];
-            cursor_array[15] = ~cursor & fractional_i[15];
-            cursor_array[14] = ~cursor & fractional_i[14];
-            cursor_array[13] = ~cursor & fractional_i[13];
-            cursor_array[12] = ~cursor & fractional_i[12];
-            cursor_array[11] = ~cursor & fractional_i[11];
-            cursor_array[10] = ~cursor & fractional_i[10];
-            cursor_array[9] = ~cursor & fractional_i[9];
-            cursor_array[8] = ~cursor & fractional_i[8];
-            cursor_array[7] = ~cursor & fractional_i[7];
-            cursor_array[6] = ~cursor & fractional_i[6];
-            cursor_array[5] = ~cursor & fractional_i[5];
-            cursor_array[4] = ~cursor & fractional_i[4];
-            cursor_array[3] = ~cursor & fractional_i[3];
-            cursor_array[2] = ~cursor & fractional_i[2];
-            cursor_array[1] = ~cursor & fractional_i[1];
-            cursor_array[0] = ~cursor & fractional_i[0];
-
-            // now we just select the exponent, this translates to a simple mux.
-            // Not the actual exponent, then add 128 to take care of both the IEE-754 bias and two's complement
-            // in one go.
-
-            case(cursor_array)
-                19'b1000000000000000000: exponent = ~(8'b00000001) + 8'b10000000;
-                19'b0100000000000000000: exponent = ~(8'b00000010) + 8'b10000000;
-                19'b0010000000000000000: exponent = ~(8'b00000011) + 8'b10000000;
-                19'b0001000000000000000: exponent = ~(8'b00000100) + 8'b10000000;
-                19'b0000100000000000000: exponent = ~(8'b00000101) + 8'b10000000;
-                19'b0000010000000000000: exponent = ~(8'b00000110) + 8'b10000000;
-                19'b0000001000000000000: exponent = ~(8'b00000111) + 8'b10000000;
-                19'b0000000100000000000: exponent = ~(8'b00001000) + 8'b10000000;
-                19'b0000000010000000000: exponent = ~(8'b00001001) + 8'b10000000;
-                19'b0000000001000000000: exponent = ~(8'b00001010) + 8'b10000000;
-                19'b0000000000100000000: exponent = ~(8'b00001011) + 8'b10000000;
-                19'b0000000000010000000: exponent = ~(8'b00001100) + 8'b10000000;
-                19'b0000000000001000000: exponent = ~(8'b00001101) + 8'b10000000;
-                19'b0000000000000100000: exponent = ~(8'b00001110) + 8'b10000000;
-                19'b0000000000000010000: exponent = ~(8'b00001111) + 8'b10000000;
-                19'b0000000000000001000: exponent = ~(8'b00010000) + 8'b10000000;
-                19'b0000000000000000100: exponent = ~(8'b00010001) + 8'b10000000;
-                19'b0000000000000000010: exponent = ~(8'b00010010) + 8'b10000000;
-                19'b0000000000000000001: exponent = ~(8'b00010011) + 8'b10000000;
-                default: exponent = 8'b0;
-            endcase
-
-            fp_reg <= {sign_i, exponent, fractional_i << exponent, 4'b0};
+            // normalise the exponent as per the IEEE-754 rules
+            fp_reg = {sign_i, ~exponent + 8'b10000000, fractional_i << exponent, 4'b0};
         end
     end
 endmodule

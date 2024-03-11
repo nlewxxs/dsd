@@ -8,7 +8,6 @@ module top (
 );
 
 fp_to_fixed fp_converter (
-    .clk(clk),
     .fp_i(in),
     .sign_o(sign_out),
     .fractional_o(frac_out),
@@ -16,7 +15,6 @@ fp_to_fixed fp_converter (
 );
 
 fixed_to_fp fixed_converter (
-    .clk(clk),
     .sign_i(sign_out),
     .integer_i(int_out),
     .fractional_i(frac_out),
