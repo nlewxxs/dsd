@@ -36,12 +36,6 @@ int main(int argc, char** argv, char** env) {
 
     dut->in = 0;
     // flush the pipeline
-    dut->eval();
-    dut->eval();
-    dut->eval();
-    dut->eval();
-    dut->eval();
-    dut->eval();
 
     for (std::size_t i = 0; i < kTestCases.size(); i++) {
         dut->in = kTestCases[i];
@@ -53,7 +47,7 @@ int main(int argc, char** argv, char** env) {
         //     dut->eval();
         // }
         std::cout << "Input: " << dut->in << ((dut->in != 0) ? " \t| " : " \t\t| ") << std::bitset<32>(dut->in) << std::endl;
-        std::cout << "Output: " << dut->fp_out << ((dut->in != 0) ? " \t| " : " \t\t| ") << std::bitset<32>(dut->fp_out) << std::endl;
+        std::cout << "Output: " << dut->out << ((dut->in != 0) ? " \t| " : " \t\t| ") << std::bitset<32>(dut->out) << std::endl;
     }
 
     // housekeeping
