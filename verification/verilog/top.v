@@ -1,5 +1,4 @@
 module top (
-    input clk,
     input [31:0] in,
     output sign_out,
     output int_out, // only one bit needed due to specs
