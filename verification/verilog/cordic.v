@@ -4,41 +4,42 @@ module cordic #(
 )(
     input clk,
     input rst,
-    // all inputs and outputs signed fixed-point
-    input sign_i,
-    output sign_o,
-    input integer_i,
-    output integer_o,
-    input [WORD_LENGTH-3:0] fractional_i,
-    output [WORD_LENGTH-3:0] fractional_o
+    // fixed-point parts are passed as one signal, there is no advantage to splitting them up or not.
+    input signed [WORD_LENGTH-1:0] x_i,        // previous x
+    input signed [WORD_LENGTH-1:0] y_i,        // previous y
+    input signed [WORD_LENGTH-1:0] z_i,        // previous z
+    input signed [WORD_LENGTH-1:0] alpha_i,    // alpha for this iteration (determined by cordic_top)
+    input [4:0] iteration_i,                   // iteration number (determined by cordic_top)
+
+    output reg signed [WORD_LENGTH-1:0] next_x_o,  // next x
+    output reg signed [WORD_LENGTH-1:0] next_y_o,  // next y
+    output reg signed [WORD_LENGTH-1:0] next_z_o   // next z
 );
+    /* might seem bizarre to input both the iteration number and the alpha, when one is dependent
+    on the other. However, storing the alphas in each cordic iteration block would be silly when we
+    can just keep one copy in the top module. This saves resources. */
 
-    reg signed [N_ITERATIONS-1:0] [WORD_LENGTH-1:0] alphas; // arctan lookup table
-    assign sign_o = alphas[0][WORD_LENGTH-1];
-    assign integer_o = alphas[0][WORD_LENGTH-2];
-    assign fractional_o = alphas[0][WORD_LENGTH-3:0];
+    reg signed [WORD_LENGTH-1:0] shifted_x;    // bitwise shifted x
+    reg signed [WORD_LENGTH-1:0] shifted_y;    // bitwise shifted y
 
-    // instantiate the arctan lookup table (this needs to be manually changed if parameters are changed,
-    // since we are using a LUT implementation for this)
-    initial begin
-        alphas[0]  = 21'b00_1100100100110110110;
-        alphas[1]  = 21'b00_0111111010000011010;
-        alphas[2]  = 21'b00_0011110011001111110;
-        alphas[3]  = 21'b00_0001111110011011111;
-        alphas[4]  = 21'b00_0000111110100101001;
-        alphas[5]  = 21'b00_0000011111011010100;
-        alphas[6]  = 21'b00_0000001111110111011;
-        alphas[7]  = 21'b00_0000000111111000000;
-        alphas[8]  = 21'b00_0000000011111100000;
-        alphas[9]  = 21'b00_0000000001111110000;
-        alphas[10] = 21'b00_0000000000111111000;
-        alphas[11] = 21'b00_0000000000011111100;
-        alphas[12] = 21'b00_0000000000001111110;
-        alphas[13] = 21'b00_0000000000000111111;
-        alphas[14] = 21'b00_0000000000000011111;
-        alphas[15] = 21'b00_0000000000000001111;
-        alphas[16] = 21'b00_0000000000000000111;
+    reg d;                              // sign of current angle
+    assign d = z_i[WORD_LENGTH-1];
+
+    always @(posedge clk) begin
+        // use signed shifting to preserve sign bit.
+        // TODO CHECK THIS MIGHT BE CAP
+        shifted_x <= x_i >>> iteration_i;
+        shifted_y <= y_i >>> iteration_i;
+        // TODO do signed arithmetic, this doesn't work. Goes to two's complement for some reaosng
+
+        $display("x: %b, y: %b", x_i, y_i);
+        $display("shifted_x: %b, shifted_y: %b", shifted_x, shifted_y);
+        $display("z sign: %b", d);
+        // update based on sign of z_i
+        next_x_o <= (d) ? x_i - shifted_y : x_i + shifted_y;
+        next_y_o <= (d) ? y_i + shifted_x : y_i - shifted_x;
+        next_z_o <= (d) ? z_i - alpha_i : z_i + alpha_i;
+        $display("next_x: %b, next_y: %b", next_x_o, next_y_o);
     end
-
 endmodule
 

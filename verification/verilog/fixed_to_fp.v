@@ -72,7 +72,7 @@ module fixed_to_fp (
             // handle special cases
             fp_reg = (sign_i) ? 32'b10111111100000000000000000000000 : 32'b00111111100000000000000000000000;
         end
-        else if (!exponent) begin
+        else if (exponent == 8'b0) begin
             fp_reg = 32'b0;
         end
         else begin

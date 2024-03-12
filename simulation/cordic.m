@@ -22,7 +22,7 @@ if (PARAM_FIXED_POINT == 1); x0 = fi(1/K, true, PARAM_WORD_LENGTH, PARAM_FRACTIO
 if (PARAM_FIXED_POINT == 1); y0 = fi(0, true, PARAM_WORD_LENGTH, PARAM_FRACTION_LENGTH); else; y0 = 0; end
 if (PARAM_FIXED_POINT == 1); z0 = fi(PARAM_TEST_ANGLE, true, PARAM_WORD_LENGTH, PARAM_FRACTION_LENGTH); else; z0 = PARAM_TEST_ANGLE; end
 
-fprintf("Starting values: \tx0 = %f, y0 = %f, z0 = %f\n", x0, y0, z0);
+fprintf("Starting values: \tx0 = %.20f, y0 = %.20f, z0 = %.20f\n", x0, y0, z0);
 [x, ~, ~] = do_cordic(x0, y0, z0, PARAM_N_ITERATIONS, alphas, PARAM_DEBUG_CORDIC_OUTPUT);
 fprintf("True value: %.20f, Error: %.20f\n", cos(PARAM_TEST_ANGLE), abs(double(x)-cos(PARAM_TEST_ANGLE)));
 
@@ -103,8 +103,8 @@ end
 % i - iteration number, starting from 0
 function [x, y, z] = cordic_iteration(x, y, z, i, alphas)
     % first op - lookup
-    display(alphas);
-    alpha = fi(alphas(i), true, 101, 90); % note matlab uses 1-based indexing
+    % display(alphas);
+    alpha = fi(alphas(i), true, 19, 17); % note matlab uses 1-based indexing
     % perform bitshifts with bitsra since it preserves the sign bit
     x_s = bitsra(x, i-1);
     y_s = bitsra(y, i-1);
