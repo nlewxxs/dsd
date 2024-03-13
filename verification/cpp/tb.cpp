@@ -8,7 +8,7 @@
 #include "Vtop.h"
 
 namespace {
-static constexpr int kMaxSimCyc {20};
+static constexpr int kMaxSimCyc {100};
 static constexpr std::array<unsigned int, 1> kTestCases {
     0b00111110000000000000000000000000 // 0.125
     // 0b00111101100000000000000000000000, // 0.0625

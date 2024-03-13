@@ -1,20 +1,20 @@
-hex = '1d92dd';
+hex = '07e9ca';
 dec = hex2dec(hex);
 bin = dec2bin(dec);
 bin = sprintf('%0*s', 21, bin);
+neg = (bin(1) == '1');
 disp(['binary value: ', bin]);
-int_bits = bin(2);
-fractional_bits = bin(3:end);
-int_part = bin2dec(int_bits);
-
-if (bin(1) == 1)
-    int_part = int_part * -1;
+if (neg)
+	c1 = not(bin-'0');
+	d=1;
+	bin = double(c1);
+	dec = bin2dec(num2str(bin));
+	dec = dec + 1;
+	dec = dec * -1;
+else 
+	dec = bin2dec(bin); 
 end
-fractional_part = bin2dec(fractional_bits);
-fractional_part = fractional_part / 2^19;
-result = int_part + fractional_part;
-fprintf("decimal value: %.20f\n", result);
 
-
-
+dec = dec / 2^19;
+fprintf("decimal value: %.20f\n", dec);
 

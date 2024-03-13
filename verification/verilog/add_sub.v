@@ -1,4 +1,4 @@
-module fixed_add_sub #(
+module add_sub #(
     parameter WORD_LENGTH = 21
 )(
     // async
@@ -7,6 +7,7 @@ module fixed_add_sub #(
     output signed [WORD_LENGTH-1:0] sum_o,
     output signed [WORD_LENGTH-1:0] difference_o
 );
+    // perform signed arithmetic
     assign sum_o = a_i + b_i;
     assign difference_o = a_i - b_i;
 

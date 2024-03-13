@@ -8,8 +8,8 @@ format long;
 PARAM_WORD_LENGTH = 21; % 24 bit total wordlength extracted from FP->fixed conversion
 PARAM_FRACTION_LENGTH = 19; % 23 of these are fractional bits by default
 PARAM_N_ITERATIONS = 17; % number of cordic iterations
-PARAM_TEST_ANGLE = 0.5; % test angle z0 in radians
-PARAM_DEBUG_CORDIC_OUTPUT = 0;
+PARAM_TEST_ANGLE = 0.125; % test angle z0 in radians
+PARAM_DEBUG_CORDIC_OUTPUT = 1;
 PARAM_FIXED_POINT = 1;
 
 % Takes input as fixed-point number

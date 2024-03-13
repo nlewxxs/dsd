@@ -26,32 +26,48 @@ module cordic_top #(
     wire signed [WORD_LENGTH-1:0] next_y;
     wire signed [WORD_LENGTH-1:0] next_z;
 
-    assign out = next_y;
-    assign alpha = alphas[0];
-    assign x = x0;
-    assign y = y0;
-    assign z = in;
+    reg signed [WORD_LENGTH-1:0] working_z; // the angle the cordic function is currently calculating
 
-    /* if the input changes, we start counting the number of clock cycles.
-    Once the number of clock cycles reaches the number of iterations and the input has stayed constant
-    during this time, we set the valid bit high for one cycle indicating the the output is ready. */
-    // reg signed [WORD_LENGTH-1:0] last_in;
+    reg [1:0] state; // 2'b0 - waiting, 2'b01 - calculating, 2'b11 - done;
 
-    cordic cordic(
-        .clk(clk),
-        .rst(rst),
-        .x_i(x),
-        .y_i(y),
-        .z_i(z),
-        .alpha_i(alpha),
-        .iteration_i(1),
-        .next_x_o(next_x),
-        .next_y_o(next_y),
-        .next_z_o(next_z)
-    );
+    assign out = (state == 2'b11) ? next_x : out;
+    assign alpha = alphas[iteration];
 
-    // always @(*) $display("sign: %b, int: %b, frac: %b", sign_i, integer_i, fractional_i);
-    /* instantiate the arctan lookup table (this needs to be manually changed if parameters are changed,
+    always @(posedge clk) begin
+        x <= (state == 2'b0) ? x0 : next_x;
+        y <= (state == 2'b0) ? y0 : next_y;
+        z <= (state == 2'b0) ? in : next_z;
+    end
+
+    // FSM implementation
+    always @(posedge clk) begin
+        case (state)
+            2'b00: begin
+                // waiting for new input
+                if (in != working_z) begin
+                    working_z <= in;
+                    state <= 2'b01;
+                end
+            end
+            2'b01: begin
+                // calculating value. Ignore input changes at this time.
+                if (iteration < N_ITERATIONS) begin
+                    iteration <= iteration + 5'b00001;
+                end
+                else begin
+                    state <= 2'b11;
+                    iteration <= 5'b0;
+                end
+            end
+            2'b11: begin
+                // Done with calculation
+                state <= 2'b0;
+            end
+            default: state <= 2'b0;
+        endcase
+    end
+
+    /* Instantiate the arctan lookup table (this needs to be manually changed if parameters are changed,
     since we are using a LUT implementation for this)
     we keep only one copy of this in the top module, because keeping a LUT inside each iteration block
     would be expensive. (for folded no difference because only one iteration block, but for unfolded
@@ -76,5 +92,22 @@ module cordic_top #(
         alphas[15] = 21'b00_0000000000000001111;
         alphas[16] = 21'b00_0000000000000000111;
     end
+
+    /* if the input changes, we start counting the number of clock cycles.
+    Once the number of clock cycles reaches the number of iterations and the input has stayed constant
+    during this time, we set the valid bit high for one cycle indicating the the output is ready. */
+
+    cordic cordic(
+        .rst(rst),
+        .x_i(x),
+        .y_i(y),
+        .z_i(z),
+        .alpha_i(alpha),
+        .iteration_i(iteration),
+        .next_x_o(next_x),
+        .next_y_o(next_y),
+        .next_z_o(next_z)
+    );
+
 endmodule
 
