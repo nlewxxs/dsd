@@ -1,19 +1,19 @@
-module fp_to_fixed (
-    // input clk,
-    input [31:0] fp_i, // floating point input
-    output sign_o, // sign of fixed-point
-    output reg integer_o, // integer part of fixed-point
-    output reg [18:0] fractional_o // fractional part of fixed-point
+module fp_to_fixed #(
+    parameter WORD_LENGTH = 21
+)(
+    input [31:0] in, // floating point input
+    output signed [WORD_LENGTH-1:0] out // fixed-point output
 );
-
     reg [7:0] exponent;
     reg [7:0] unbiased_exponent;
     reg [22:0] significand;
+    reg [WORD_LENGTH-2:0] magnitude;
 
-    assign sign_o = fp_i[31]; // keep the same sign
-    assign exponent = fp_i[30:23]; // extract exponent
-    assign significand = fp_i[22:0]; // extract significand
+    assign exponent = in[30:23]; // extract exponent
+    assign significand = in[22:0]; // extract significand
     assign unbiased_exponent = ~(exponent - 127 - 8'b00000001); // unbias component using two's complement
+
+    assign out = (in[31]) ? {1'b0, (~magnitude + 1'b1)} : {1'b0, magnitude};
 
     always @(*) begin
 
@@ -45,7 +45,6 @@ module fp_to_fixed (
             integer_part = 1'b0;
         end
 
-        integer_o = integer_part;
-        fractional_o = fractional_part[22:4]; // KEEP ONLY BITS REQUIRED BY MONTE-CARLO RESULTS
+        magnitude = {integer_part, fractional_part[22:4]};
     end
 endmodule;

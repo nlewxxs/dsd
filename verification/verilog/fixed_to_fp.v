@@ -1,14 +1,26 @@
-module fixed_to_fp (
-    input sign_i,
-    input integer_i,
-    input [18:0] fractional_i,
-    output [31:0] fp_o
+module fixed_to_fp #(
+    parameter WORD_LENGTH = 21
+)(
+    input signed [WORD_LENGTH-1:0] in,
+    output [31:0] out
 );
     /* Given that we know the exponent will always be negative, we can exploit this to get an extremely
     fast and compact method of converting from fixed point to IEEE-754 floating point. */
 
-    reg [31:0] fp_reg;
-    assign fp_o = fp_reg;
+    /* don't actually have to worry about negatives here because cos() output will always be positive
+    for the given range. */
+
+    reg [31:0] fp;
+
+    // split up input for ease of conversion
+    wire sign;
+    wire integer_part;
+    wire [WORD_LENGTH-3:0] fractional;
+
+    assign sign = in[WORD_LENGTH-1];
+    assign integer_part = in[WORD_LENGTH-2];
+    assign fractional = in[WORD_LENGTH-3:0];
+    assign out = fp;
 
     always @(*) begin
         reg [7:0] exponent;
@@ -22,25 +34,25 @@ module fixed_to_fp (
             1 for all subsequent 1s or 0s
         The resulting bitwise_or_array will allow us to then select an exponent using a simple multiplexer.
         */
-        bitwise_or_array[18] = fractional_i[18];
-        bitwise_or_array[17] = bitwise_or_array[18] | fractional_i[17];
-        bitwise_or_array[16] = bitwise_or_array[17] | fractional_i[16];
-        bitwise_or_array[15] = bitwise_or_array[16] | fractional_i[15];
-        bitwise_or_array[14] = bitwise_or_array[15] | fractional_i[14];
-        bitwise_or_array[13] = bitwise_or_array[14] | fractional_i[13];
-        bitwise_or_array[12] = bitwise_or_array[13] | fractional_i[12];
-        bitwise_or_array[11] = bitwise_or_array[12] | fractional_i[11];
-        bitwise_or_array[10] = bitwise_or_array[11] | fractional_i[10];
-        bitwise_or_array[9] = bitwise_or_array[10] | fractional_i[9];
-        bitwise_or_array[8] = bitwise_or_array[9] | fractional_i[8];
-        bitwise_or_array[7] = bitwise_or_array[8] | fractional_i[7];
-        bitwise_or_array[6] = bitwise_or_array[7] | fractional_i[6];
-        bitwise_or_array[5] = bitwise_or_array[6] | fractional_i[5];
-        bitwise_or_array[4] = bitwise_or_array[5] | fractional_i[4];
-        bitwise_or_array[3] = bitwise_or_array[4] | fractional_i[3];
-        bitwise_or_array[2] = bitwise_or_array[3] | fractional_i[2];
-        bitwise_or_array[1] = bitwise_or_array[2] | fractional_i[1];
-        bitwise_or_array[0] = bitwise_or_array[1] | fractional_i[0];
+        bitwise_or_array[18] = fractional[18];
+        bitwise_or_array[17] = bitwise_or_array[18] | fractional[17];
+        bitwise_or_array[16] = bitwise_or_array[17] | fractional[16];
+        bitwise_or_array[15] = bitwise_or_array[16] | fractional[15];
+        bitwise_or_array[14] = bitwise_or_array[15] | fractional[14];
+        bitwise_or_array[13] = bitwise_or_array[14] | fractional[13];
+        bitwise_or_array[12] = bitwise_or_array[13] | fractional[12];
+        bitwise_or_array[11] = bitwise_or_array[12] | fractional[11];
+        bitwise_or_array[10] = bitwise_or_array[11] | fractional[10];
+        bitwise_or_array[9] = bitwise_or_array[10] | fractional[9];
+        bitwise_or_array[8] = bitwise_or_array[9] | fractional[8];
+        bitwise_or_array[7] = bitwise_or_array[8] | fractional[7];
+        bitwise_or_array[6] = bitwise_or_array[7] | fractional[6];
+        bitwise_or_array[5] = bitwise_or_array[6] | fractional[5];
+        bitwise_or_array[4] = bitwise_or_array[5] | fractional[4];
+        bitwise_or_array[3] = bitwise_or_array[4] | fractional[3];
+        bitwise_or_array[2] = bitwise_or_array[3] | fractional[2];
+        bitwise_or_array[1] = bitwise_or_array[2] | fractional[1];
+        bitwise_or_array[0] = bitwise_or_array[1] | fractional[0];
 
 
         // now we just select the exponent, this translates to a simple mux.
@@ -68,16 +80,16 @@ module fixed_to_fp (
         endcase
 
         // this is written with the assumption that the input will not be outside the required [-1, 1] range
-        if (integer_i) begin
+        if (integer_part) begin
             // handle special cases
-            fp_reg = (sign_i) ? 32'b10111111100000000000000000000000 : 32'b00111111100000000000000000000000;
+            fp = (sign) ? 32'b10111111100000000000000000000000 : 32'b00111111100000000000000000000000;
         end
         else if (exponent == 8'b0) begin
-            fp_reg = 32'b0;
+            fp = 32'b0;
         end
         else begin
             // normalise the exponent as per the IEEE-754 rules
-            fp_reg = {sign_i, ~exponent + 8'b10000000, fractional_i << exponent, 4'b0};
+            fp = {sign, ~exponent + 8'b10000000, fractional << exponent, 4'b0};
         end
     end
 endmodule

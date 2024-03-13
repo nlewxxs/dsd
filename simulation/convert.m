@@ -1,5 +1,4 @@
-
-hex = '026DD4';
+hex = '1d92dd';
 dec = hex2dec(hex);
 bin = dec2bin(dec);
 bin = sprintf('%0*s', 21, bin);

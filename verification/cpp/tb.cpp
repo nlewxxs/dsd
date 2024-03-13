@@ -49,8 +49,8 @@ int main(int argc, char** argv, char** env) {
     // }
     for (int i = 0; i < kMaxSimCyc; i++) {
         for (int tick = 0; tick < 2; tick++) {
-            dut->clk = !dut->clk; // toggle clock
             tfp->dump(2*i + tick);
+            dut->clk = !dut->clk; // toggle clock
             dut->eval();
         }
     }
