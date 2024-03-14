@@ -14,6 +14,9 @@ PARAM_FIXED_POINT = 1;
 
 % Takes input as fixed-point number
 alphas = calculate_alpha(PARAM_N_ITERATIONS, PARAM_FIXED_POINT, PARAM_WORD_LENGTH, PARAM_FRACTION_LENGTH);
+% for i = 1:numel(alphas)
+%     fprintf("%.30f\n", alphas(i));
+% end
 
 % inits
 iteration_idxs = 0:1:PARAM_N_ITERATIONS-1;
@@ -94,7 +97,7 @@ function [x, y, z] = do_cordic(x0, y0, z0, N, alphas, PARAM_DEBUG_CORDIC_OUTPUT)
     for iteration = 1:1:N
         [x, y, z] = cordic_iteration(x, y, z, iteration, alphas);
         if (PARAM_DEBUG_CORDIC_OUTPUT == 1)
-            fprintf("After iteration %d: x = %.20f, y = %.20f, z = %.20f\n", iteration, x, y, z);
+            fprintf("--------\nAfter iteration %d:\n x = %.20f, z = %.20f\n Used alpha = %.20f\n", iteration, x, z, alphas(iteration));
         end
     end
 end
@@ -104,7 +107,7 @@ end
 function [x, y, z] = cordic_iteration(x, y, z, i, alphas)
     % first op - lookup
     % display(alphas);
-    alpha = fi(alphas(i), true, 19, 17); % note matlab uses 1-based indexing
+    alpha = fi(alphas(i), true, 21, 19); % note matlab uses 1-based indexing
     % perform bitshifts with bitsra since it preserves the sign bit
     x_s = bitsra(x, i-1);
     y_s = bitsra(y, i-1);
