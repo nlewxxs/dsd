@@ -1,3 +1,4 @@
+// top module
 module top #(
     parameter WORD_LENGTH = 21
 )(
@@ -28,4 +29,4 @@ fixed_to_fp fixed_to_floating (
     .out(out)
 );
 
-endmodule;
+endmodule

@@ -12,14 +12,14 @@ module cordic_top #(
     localparam x0 = 21'b00_1001101101110100111; // 1/K
     localparam y0 = 0;
 
-    reg signed [WORD_LENGTH-1:0] alphas [N_ITERATIONS-1:0]; // arctan lookup table
+    reg signed [N_ITERATIONS-1:0] [WORD_LENGTH-1:0] alphas; // arctan lookup table
     reg [4:0] iteration; // current iteration
 
     // current values
     reg signed [WORD_LENGTH-1:0] x;
     reg signed [WORD_LENGTH-1:0] y;
     reg signed [WORD_LENGTH-1:0] z;
-    wire signed [WORD_LENGTH-1:0] alpha;
+    reg signed [WORD_LENGTH-1:0] alpha;
 
     // wires
     wire signed [WORD_LENGTH-1:0] next_x;

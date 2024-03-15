@@ -10,16 +10,16 @@ module cordic #(
     input signed [WORD_LENGTH-1:0] alpha_i,    // alpha for this iteration (determined by cordic_top)
     input [4:0] iteration_i,                   // iteration number (determined by cordic_top)
 
-    output signed [WORD_LENGTH-1:0] next_x_o,  // next x
-    output signed [WORD_LENGTH-1:0] next_y_o,  // next y
-    output signed [WORD_LENGTH-1:0] next_z_o   // next z
+    output reg signed [WORD_LENGTH-1:0] next_x_o,  // next x
+    output reg signed [WORD_LENGTH-1:0] next_y_o,  // next y
+    output reg signed [WORD_LENGTH-1:0] next_z_o   // next z
 );
     /* might seem bizarre to input both the iteration number and the alpha, when one is dependent
     on the other. However, storing the alphas in each cordic iteration block would be silly when we
     can just keep one copy in the top module. This saves resources. */
 
-    wire signed [WORD_LENGTH-1:0] shifted_x;     // bitwise shifted x
-    wire signed [WORD_LENGTH-1:0] shifted_y;     // bitwise shifted y
+    reg signed [WORD_LENGTH-1:0] shifted_x;     // bitwise shifted x
+    reg signed [WORD_LENGTH-1:0] shifted_y;     // bitwise shifted y
     wire d;                                     // sign of current angle
 
     // wires to connect up arithmetic modules
