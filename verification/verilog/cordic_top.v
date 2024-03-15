@@ -30,7 +30,7 @@ module cordic_top #(
 
     reg [1:0] state; // 2'b0 - waiting, 2'b01 - calculating, 2'b11 - done;
 
-    assign out = (state == 2'b11) ? next_x : out;
+    assign out = (state == 2'b11) ? x : out;
     assign alpha = alphas[iteration];
 
     always @(posedge clk) begin
