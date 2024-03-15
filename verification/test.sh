@@ -4,7 +4,7 @@
 rm -rf obj_dir
 
 # verilate
-verilator -Wall --trace -cc verilog/top.v verilog/cordic_top.v verilog/cordic.v verilog/add_sub.v verilog/fp_to_fixed.v verilog/fixed_to_fp.v --exe cpp/tb.cpp
+verilator -Wall --trace -cc unfolded/top.v unfolded/cordic_top.v unfolded/cordic.v unfolded/add_sub.v unfolded/fp_to_fixed.v unfolded/fixed_to_fp.v --exe cpp/tb.cpp
 
 # make
 make -C obj_dir -f Vtop.mk Vtop
