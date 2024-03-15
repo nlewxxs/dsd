@@ -1,6 +1,5 @@
 module cordic #(
-    parameter WORD_LENGTH = 21,
-    parameter N_ITERATIONS = 17
+    parameter WORD_LENGTH = 21
 )(
     input rst,
 
@@ -59,9 +58,9 @@ module cordic #(
     assign shifted_y = y_i >>> iteration_i;
 
     // update based on sign of z_i
-    assign next_x_o = (d) ? x_sum : x_diff;
-    assign next_y_o = (d) ? y_diff : y_sum;
-    assign next_z_o = (d) ? z_sum : z_diff;
+    assign next_x_o = (rst) ? 0 : ((d) ? x_sum : x_diff);
+    assign next_y_o = (rst) ? 0 : ((d) ? y_diff : y_sum);
+    assign next_z_o = (rst) ? 0 : ((d) ? z_sum : z_diff);
 
 endmodule
 

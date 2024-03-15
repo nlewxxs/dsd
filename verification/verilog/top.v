@@ -1,6 +1,5 @@
 module top #(
-    parameter WORD_LENGTH = 21,
-    parameter N_ITERATIONS = 17
+    parameter WORD_LENGTH = 21
 )(
     input clk,
     input rst,
