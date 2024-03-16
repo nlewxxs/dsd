@@ -12,7 +12,7 @@ module cordic_reg #(
 
     output reg signed [WORD_LENGTH-1:0] x_o, // x
     output reg signed [WORD_LENGTH-1:0] y_o, // y
-    output reg signed [WORD_LENGTH-1:0] z_o, // z
+    output reg signed [WORD_LENGTH-1:0] z_o  // z
 );
 
     // update synchronously

@@ -1,6 +1,7 @@
 // top module
 module top #(
-    parameter WORD_LENGTH = 21
+    parameter WORD_LENGTH = 21,
+    parameter N_ITERATIONS = 17
 )(
     input clk,
     input rst,
@@ -152,6 +153,10 @@ module top #(
     wire signed [WORD_LENGTH-1:0] x16_o;
     wire signed [WORD_LENGTH-1:0] y16_o;
     wire signed [WORD_LENGTH-1:0] z16_o;
+
+    wire signed [WORD_LENGTH-1:0] x17;
+    wire signed [WORD_LENGTH-1:0] y17;
+    wire signed [WORD_LENGTH-1:0] z17;
 
     fp_to_fixed floating_to_fixed (
         .in(in),
