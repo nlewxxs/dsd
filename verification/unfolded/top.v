@@ -40,6 +40,8 @@ module top #(
 
     // pipeline 0
     wire [31:0] half_x;
+    wire [31:0] x_sub_128;
+    wire [31:0] x_sub_128_halved;
 
     wire signed [WORD_LENGTH-1:0] x1;
     wire signed [WORD_LENGTH-1:0] y1;
@@ -128,9 +130,14 @@ module top #(
         .out(z0)
     );
 
-    divide_two halver (
+    div_2 divide_two (
         .in(in),
         .out(half_x)
+    );
+
+    div_128 divide_128 (
+        .in(in),
+        .out(x_sub_128_halved)
     );
 
     cordic iteration_0 (

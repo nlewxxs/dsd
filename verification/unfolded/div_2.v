@@ -1,4 +1,4 @@
-module divide_two (
+module div_2 (
     // input and output in IEEE-754 format
     input [31:0] in,
     output [31:0] out
