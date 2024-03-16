@@ -7,15 +7,15 @@ module fp_to_fixed #(
     wire [7:0] exponent;
     wire [7:0] unbiased_exponent;
     wire [22:0] significand;
-	 
-    reg [WORD_LENGTH-2:0] magnitude;
-	 reg [22:0] fractional_part;
 
-	 assign exponent = in[30:23]; // extract exponent
-	 assign significand = in[22:0]; // extract significand
-	 assign unbiased_exponent = ~(exponent - 127 - 8'b00000001); // unbias component using two's complement
-    
-	 assign out = (in[31]) ? {1'b0, (~magnitude + 1'b1)} : {1'b0, magnitude};
+    reg [WORD_LENGTH-2:0] magnitude;
+	reg [22:0] fractional_part;
+
+	assign exponent = in[30:23]; // extract exponent
+    assign significand = in[22:0]; // extract significand
+	assign unbiased_exponent = ~(exponent - 127 - 8'b00000001); // unbias component using two's complement
+
+	assign out = (in[31] == 1) ? {1'b1, (~magnitude + 1'b1)} : {1'b0, magnitude};
 
     always @(*) begin
 

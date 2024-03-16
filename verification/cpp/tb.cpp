@@ -10,9 +10,9 @@
 namespace {
 static constexpr int kMaxSimCyc {100};
 static constexpr std::array<unsigned int, 1> kTestCases {
-    0b00111110000000000000000000000000 // 0.125
-    // 0b00111101100000000000000000000000, // 0.0625
-    // 0b10111101100000000000000000000000, // -0.0625
+    // 0b00111110000000000000000000000000 // 0.125
+    // 0b00111101100000000000000000000000 // 0.0625
+    0b10111101100000000000000000000000 // -0.0625
     // 0b00000000000000000000000000000000, // 0
     // 0b00111111100000000000000000000000, // 1
     // 0b10111111100000000000000000000000, // -1
@@ -32,6 +32,9 @@ int main(int argc, char** argv, char** env) {
     Verilated::traceEverOn(true);
     dut->trace(tfp, 99);
     tfp->open("top.vcd");
+    dut->rst = 1;
+    dut->eval();
+    dut->rst = 0;
     dut->in = kTestCases[0]; // set input
     // flush the pipeline
 

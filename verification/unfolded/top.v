@@ -39,6 +39,8 @@ module top #(
     end
 
     // pipeline 0
+    wire [31:0] half_x;
+
     wire signed [WORD_LENGTH-1:0] x1;
     wire signed [WORD_LENGTH-1:0] y1;
     wire signed [WORD_LENGTH-1:0] z1;
@@ -124,6 +126,11 @@ module top #(
     fp_to_fixed floating_to_fixed (
         .in(in),
         .out(z0)
+    );
+
+    divide_two halver (
+        .in(in),
+        .out(half_x)
     );
 
     cordic iteration_0 (
