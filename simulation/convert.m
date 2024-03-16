@@ -1,4 +1,4 @@
-hex = '07f007';
+hex = '07fc03';
 dec = hex2dec(hex);
 bin = dec2bin(dec);
 bin = sprintf('%0*s', 21, bin);
