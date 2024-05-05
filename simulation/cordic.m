@@ -5,31 +5,51 @@ close all;
 format long;
 
 % Parameters to be tweaked to fit specification
-PARAM_WORD_LENGTH = 21; % 24 bit total wordlength extracted from FP->fixed conversion
-PARAM_FRACTION_LENGTH = 19; % 23 of these are fractional bits by default
-PARAM_N_ITERATIONS = 17; % number of cordic iterations
-PARAM_TEST_ANGLE = -0.0625; % test angle z0 in radians
-PARAM_DEBUG_CORDIC_OUTPUT = 1;
-PARAM_FIXED_POINT = 1;
-
 % Takes input as fixed-point number
-alphas = calculate_alpha(PARAM_N_ITERATIONS, PARAM_FIXED_POINT, PARAM_WORD_LENGTH, PARAM_FRACTION_LENGTH);
 % for i = 1:numel(alphas)
 %     fprintf("%.30f\n", alphas(i));
 % end
 
 % inits
-iteration_idxs = 0:1:PARAM_N_ITERATIONS-1;
-K = prod(sqrt(1 + 2.^(-2*(iteration_idxs))));
-if (PARAM_FIXED_POINT == 1); x0 = fi(1/K, true, PARAM_WORD_LENGTH, PARAM_FRACTION_LENGTH); else; x0 = 1/K; end
-if (PARAM_FIXED_POINT == 1); y0 = fi(0, true, PARAM_WORD_LENGTH, PARAM_FRACTION_LENGTH); else; y0 = 0; end
-if (PARAM_FIXED_POINT == 1); z0 = fi(PARAM_TEST_ANGLE, true, PARAM_WORD_LENGTH, PARAM_FRACTION_LENGTH); else; z0 = PARAM_TEST_ANGLE; end
-
-fprintf("Starting values: \tx0 = %.20f, y0 = %.20f, z0 = %.20f\n", x0, y0, z0);
-[x, ~, ~] = do_cordic(x0, y0, z0, PARAM_N_ITERATIONS, alphas, PARAM_DEBUG_CORDIC_OUTPUT);
-fprintf("True value: %.20f, Error: %.20f\n", cos(PARAM_TEST_ANGLE), abs(double(x)-cos(PARAM_TEST_ANGLE)));
+% fprintf("Starting values: \tx0 = %.20f, y0 = %.20f, z0 = %.20f\n", x0, y0, z0);
+% [x, ~, ~] = do_cordic(x0, y0, z0, PARAM_N_ITERATIONS, alphas, PARAM_DEBUG_CORDIC_OUTPUT);
+% fprintf("True value: %.20f, Error: %.20f\n", cos(PARAM_TEST_ANGLE), abs(double(x)-cos(PARAM_TEST_ANGLE)));
 
 % foo = monte_carlo(100);
+
+foo = calculate(1/1024.0, 261121);
+display(foo);
+
+function answer = calculate(step, N)
+    array = 0:step:(N-1)*step;
+    total = 0;
+	PARAM_WORD_LENGTH = 21; % 24 bit total wordlength extracted from FP->fixed conversion
+	PARAM_FRACTION_LENGTH = 19; % 23 of these are fractional bits by default
+	PARAM_N_ITERATIONS = 17; % number of cordic iterations
+	PARAM_TEST_ANGLE = 0.125; % test angle z0 in radians
+	PARAM_DEBUG_CORDIC_OUTPUT = 0;
+	PARAM_FIXED_POINT = 1;
+
+	alphas = calculate_alpha(PARAM_N_ITERATIONS, PARAM_FIXED_POINT, PARAM_WORD_LENGTH, PARAM_FRACTION_LENGTH);
+
+    	for i = 1:length(array)
+
+	iteration_idxs = 0:1:PARAM_N_ITERATIONS-1;
+	K = prod(sqrt(1 + 2.^(-2*(iteration_idxs))));
+	if (PARAM_FIXED_POINT == 1); x0 = fi(1/K, true, PARAM_WORD_LENGTH, PARAM_FRACTION_LENGTH); else; x0 = 1/K; end
+	if (PARAM_FIXED_POINT == 1); y0 = fi(0, true, PARAM_WORD_LENGTH, PARAM_FRACTION_LENGTH); else; y0 = 0; end
+	if (PARAM_FIXED_POINT == 1); z0 = fi(array(i), true, PARAM_WORD_LENGTH, PARAM_FRACTION_LENGTH); else; z0 = PARAM_TEST_ANGLE; end
+
+	angle = (array(i) - 128)/128;
+	[cosres, ~, ~] = do_cordic(x0, y0, z0, PARAM_N_ITERATIONS, alphas, PARAM_DEBUG_CORDIC_OUTPUT);
+        total = total + 0.5*array(i) + (array(i)^2)*cos((array(i) - 128)/128);
+        % fprintf("array: %0.6f\n", array(i));
+    end
+    answer = total;
+    % display(array);
+end
+
+%fprintf("decimal value: %.20f\n", decimal);
 
 function results = monte_carlo(samples)
     % vary the number of iterations and the wordlength.

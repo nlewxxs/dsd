@@ -38,18 +38,6 @@ int main(int argc, char** argv, char** env) {
     dut->in = kTestCases[0]; // set input
     // flush the pipeline
 
-    // for (std::size_t i = 0; i < kTestCases.size(); i++) {
-    //     dut->in = kTestCases[i];
-    //     dut->eval();
-    //     tfp->dump(i);
-    //     for (int tick = 0; tick < 2; tick++) {
-    //         dut->clk = !dut->clk;
-    //         tfp->dump(2*i + tick);
-    //         dut->eval();
-    //     }
-    //     std::cout << "Input: " << dut->in << ((dut->in != 0) ? " \t| " : " \t\t| ") << std::bitset<32>(dut->in) << std::endl;
-    //     std::cout << "Output: " << dut->out << ((dut->in != 0) ? " \t| " : " \t\t| ") << std::bitset<32>(dut->out) << std::endl;
-    // }
     for (int i = 0; i < kMaxSimCyc; i++) {
         for (int tick = 0; tick < 2; tick++) {
             tfp->dump(2*i + tick);
